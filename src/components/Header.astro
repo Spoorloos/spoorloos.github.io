@@ -1,5 +1,4 @@
 ---
-import NavButton from "./NavButton.astro";
 import Binary from "@lucide/astro/icons/binary";
 
 const ANIMATE_STEP = 0.1; // seconds
@@ -12,18 +11,18 @@ const NAV_LINKS = {
 } satisfies Record<string, string>;
 ---
 
-<header class="p-4 flex gap-8 justify-between">
-    <a class="flex items-center gap-1 animate-slide-down-fade-in" href="/">
+<header class="fixed top-0 z-10 flex justify-between w-full gap-8 p-4 animate-fade-in backdrop-blur-3xl bg-black/25">
+    <a class="flex items-center gap-1 animate-slide-down" href="/">
         <Binary/>
-        <h1 class="font-bold text-xl">Mick's Portfolio</h1>
+        <h1 class="text-xl font-bold">Mick's Portfolio</h1>
     </a>
     <nav class="flex gap-2">
         {Object.entries(NAV_LINKS).map(([ name, href ], index) =>
-            <NavButton
+            <a
                 href={href}
-                class="animate-slide-down-fade-in"
+                class="nav-link animate-slide-down"
                 style={{ animationDelay: `${index * ANIMATE_STEP}s` }}
-            >{name}</NavButton>
+            >{name}</a>
         )}
     </nav>
 </header>

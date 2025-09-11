@@ -1,26 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MainButton from "../components/MainButton.astro";
 ---
 
 <Layout>
-    <section class="flex flex-col justify-center items-center h-full">
-        <div class="space-y-6">
-            <div class="text-center">
-                <h2 class="text-2xl text-white/50 italic drop-shadow-lg drop-shadow-white/20">Hi, my name is Mick</h2>
-            </div>
-            <p class="text-6xl font-bold drop-shadow-2xl drop-shadow-white/20">
-                I am a
-                <span class="text-blue-500">
-                    <span id="what-am-i-heading"></span><span class="animate-fade-in-out">_</span>
-                </span>
-                
-            </p>
-            <div class="text-center space-x-2">
-                <MainButton>Get in contact</MainButton>
-                <MainButton buttonType="secondary">View skills</MainButton>
-            </div>
+    <section class="flex flex-col items-center justify-center h-screen gap-4 snap-center">
+        <h2 class="text-2xl italic text-white/50 drop-shadow-lg drop-shadow-white/20">Hi, my name is Mick</h2>
+        <p class="text-6xl font-bold drop-shadow-2xl drop-shadow-white/20">
+            I am a
+            <span class="text-blue-500">
+                <span id="what-am-i-heading"></span><span class="animate-fade-in-out">_</span>
+            </span>
+        </p>
+        <div class="space-x-2">
+            <a class="inline-block button-primary" href="#contact">Get in contact</a>
+            <a class="inline-block button-secondary" href="#skills">View about me</a>
         </div>
+    </section>
+    <section class="flex flex-col items-center justify-center h-screen gap-4 bg-red-500 snap-center" id="about-me">
+        <h2>About me</h2>
+    </section>
+    <section class="flex flex-col items-center justify-center h-screen gap-4 bg-green-500 snap-center" id="skills">
+        <h2>Skills</h2>
+    </section>
+    <section class="flex flex-col items-center justify-center h-screen gap-4 bg-blue-500 snap-center" id="contact">
+        <h2>Contact</h2>
     </section>
 </Layout>
 
