@@ -12,16 +12,16 @@ const NAV_LINKS = {
 } satisfies Record<string, string>;
 ---
 
-<header class="fixed top-0 z-10 flex justify-between w-full gap-8 p-4 animate-fade-in has-[nav[data-open]]:bg-black">
+<header class="fixed top-0 z-10 flex justify-between w-full gap-8 p-4 animate-fade-in has-[nav[data-open]]:bg-black transition-colors">
     <a class="flex items-center gap-1 animate-slide-down" href="/">
         <Binary class="size-8"/>
         <h1 class="text-3xl sm:text-2xl font-bold">Mick's Portfolio</h1>
     </a>
-    <nav class="gap-2 sm:flex sm:flex-row sm:static hidden data-open:flex flex-col absolute inset-[100%_0_auto_0] bg-black sm:bg-transparent animate-slide-right sm:animate-none p-4 sm:p-0" id="nav-menu">
+    <nav class="sm:static sm:translate-none sm:opacity-100 sm:flex-row sm:p-0 sm:bg-transparent absolute top-full left-0 right-0 bg-black flex flex-col gap-2 p-4 -translate-x-full data-open:translate-x-0 opacity-0 data-open:opacity-100 transition-all" id="nav-menu">
         {Object.entries(NAV_LINKS).map(([ name, href ], index) =>
             <a
                 href={href}
-                class="nav-link animate-slide-right sm:animate-slide-down text-2xl sm:text-lg"
+                class="nav-link sm:animate-slide-down text-2xl sm:text-lg"
                 style={{ animationDelay: `${index * ANIMATE_STEP}s` }}
             >{name}</a>
         )}
