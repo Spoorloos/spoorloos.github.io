@@ -26,6 +26,12 @@ importers:
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.13
+      three:
+        specifier: ^0.134.0
+        version: 0.134.0
+      vanta:
+        specifier: ^0.5.24
+        version: 0.5.24
 
 packages:
 
@@ -1428,6 +1434,9 @@ packages:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
 
+  three@0.134.0:
+    resolution: {integrity: sha512-LbBerg7GaSPjYtTOnu41AMp7tV6efUNR3p4Wk5NzkSsNTBuA5mDGOfwwZL1jhhVMLx9V20HolIUo0+U3AXehbg==}
+
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
 
@@ -1581,6 +1590,9 @@ packages:
         optional: true
       uploadthing:
         optional: true
+
+  vanta@0.5.24:
+    resolution: {integrity: sha512-fvieEbHy1ZS23zrcX+topzqAgA4Uct1enngOEWLFBgs9TtOf6RDFOYatH7KSVdrABzQDMCQ5myQy+nTSZZwLzg==}
 
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
@@ -3345,6 +3357,8 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
+  three@0.134.0: {}
+
   tiny-inflate@1.0.3: {}
 
   tinyexec@0.3.2: {}
@@ -3456,6 +3470,8 @@ snapshots:
       node-fetch-native: 1.6.7
       ofetch: 1.4.1
       ufo: 1.6.1
+
+  vanta@0.5.24: {}
 
   vfile-location@5.0.3:
     dependencies:
