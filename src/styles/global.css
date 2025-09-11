@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+    --font-inter: "Inter Variable", sans-serif;
+    --animate-slide-down-fade-in: slide-down-fade-in 0.5s ease-in-out both;
+    --animate-fade-in: fade-in 0.5s ease-in-out both;
+    --animate-fade-in-out: fade-in-out 1s ease-in-out both infinite;
+
+    @keyframes slide-down-fade-in {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0%;
+        }
+        100% {
+            transform: translateY(0%);
+            opacity: 100%;
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    @keyframes fade-in-out {
+        0% {
+            opacity: 0%;
+        }
+        50% {
+            opacity: 100%;
+        }
+        100% {
+            opacity: 0%;
+        }
+    }
+}

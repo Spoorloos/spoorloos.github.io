@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainButton from "../components/MainButton.astro";
+---
+
+<Layout>
+    <section class="flex flex-col justify-center items-center h-full">
+        <div class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-2xl text-white/50 italic drop-shadow-lg drop-shadow-white/20">Hi, my name is Mick</h2>
+            </div>
+            <p class="text-6xl font-bold drop-shadow-2xl drop-shadow-white/20">
+                I am a
+                <span
+                    class="text-blue-500 after:content-['\\_'] after:animate-fade-in-out"
+                    id="what-am-i-heading"
+                ></span>
+            </p>
+            <div class="text-center space-x-2">
+                <MainButton>Get in contact</MainButton>
+                <MainButton buttonType="secondary">View skills</MainButton>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const headingElement = document.getElementById("what-am-i-heading")!;
+    const descriptions = [
+        "Full-Stack Developer",
+        "React & Next.js Enthusiast",
+        "Tailwind CSS Aficionado",
+        "Linux User",
+        "Low-Level Developer",
+        "Problem Solver",
+        "Clean Code Advocate"
+    ];
+
+    let descriptionIndex = 0;
+    let letterIndex = 0;
+    let removeWord = false;
+
+    function showNextLetter() {
+        const currentDescription = descriptions[descriptionIndex];
+
+        headingElement.innerText = currentDescription.slice(0, letterIndex);
+
+        letterIndex = removeWord ? letterIndex - 1 : letterIndex + 1;
+
+        if (removeWord && letterIndex === 0) {
+            removeWord = false
+            descriptionIndex = (descriptionIndex + 1) % descriptions.length;
+        }
+
+        if (letterIndex > currentDescription.length) {
+            removeWord = true;
+            setTimeout(showNextLetter, 1000);
+        } else {
+            setTimeout(showNextLetter, removeWord ? 50 : Math.random() * 100);
+        }
+    }
+
+    showNextLetter();
+</script>

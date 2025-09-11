@@ -1,0 +1,22 @@
+---
+import { twMerge, twJoin } from 'tailwind-merge';
+
+type Props = astroHTML.JSX.ButtonHTMLAttributes & {
+    buttonType?: "primary" | "secondary";
+};
+
+const { class: className, buttonType = "primary", ...props } = Astro.props;
+---
+
+<button
+    class={twMerge(
+        className,
+        "border border-white/15 p-2.5 rounded-full text-white/80 hover:text-white cursor-pointer transition-colors font-semibold text-shadow-md duration-100",
+        buttonType === "primary" ?
+            "bg-white/10 hover:bg-white/15 drop-shadow-lg drop-shadow-white/10 active:bg-white/10" :
+            "bg-transparent hover:bg-white/10 active:bg-white/5"
+    )}
+    {...props}
+>
+    <slot/>
+</button>
