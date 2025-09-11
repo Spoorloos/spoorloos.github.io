@@ -1,5 +1,6 @@
 ---
 import Binary from "@lucide/astro/icons/binary";
+import Menu from "@lucide/astro/icons/menu";
 
 const ANIMATE_STEP = 0.1; // seconds
 
@@ -11,18 +12,30 @@ const NAV_LINKS = {
 } satisfies Record<string, string>;
 ---
 
-<header class="fixed top-0 z-10 flex justify-between w-full gap-8 p-4 animate-fade-in">
+<header class="fixed top-0 z-10 flex justify-between w-full gap-8 p-4 animate-fade-in has-[nav[data-open]]:bg-black">
     <a class="flex items-center gap-1 animate-slide-down" href="/">
-        <Binary/>
-        <h1 class="text-xl font-bold">Mick's Portfolio</h1>
+        <Binary class="size-8"/>
+        <h1 class="text-3xl sm:text-2xl font-bold">Mick's Portfolio</h1>
     </a>
-    <nav class="flex gap-2">
+    <nav class="gap-2 sm:flex sm:flex-row sm:static hidden data-open:flex flex-col absolute inset-[100%_0_auto_0] bg-black sm:bg-transparent animate-slide-right sm:animate-none p-4 sm:p-0" id="nav-menu">
         {Object.entries(NAV_LINKS).map(([ name, href ], index) =>
             <a
                 href={href}
-                class="nav-link animate-slide-down"
+                class="nav-link animate-slide-right sm:animate-slide-down text-2xl sm:text-lg"
                 style={{ animationDelay: `${index * ANIMATE_STEP}s` }}
             >{name}</a>
         )}
     </nav>
+    <button class="sm:hidden cursor-pointer" id="nav-btn">
+        <Menu class="size-8"/>
+    </button>
 </header>
+
+<script>
+    const navBtn = document.getElementById("nav-btn")!;
+    const navMenu = document.getElementById("nav-menu")!;
+
+    navBtn.addEventListener("click", () => {
+        navMenu.toggleAttribute("data-open");
+    });
+</script>

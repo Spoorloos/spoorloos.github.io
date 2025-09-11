@@ -2,9 +2,10 @@
 
 @theme {
     --font-inter: "Inter Variable", sans-serif;
-    --animate-slide-down-fade-in: slide-down-fade-in 0.5s ease-in-out both;
+    --animate-slide-down: slide-down 0.5s ease-in-out both;
     --animate-fade-in: fade-in 0.5s ease-in-out both;
     --animate-fade-in-out: fade-in-out 1s ease-in-out both infinite;
+    --animate-slide-right: slide-right 0.5s ease-in-out both;
 
     @keyframes slide-down {
         0% {
@@ -33,6 +34,15 @@
         }
         100% {
             opacity: 0%;
+        }
+    }
+
+    @keyframes slide-right {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
         }
     }
 }
