@@ -14,31 +14,22 @@ import Footer from "../components/Footer.astro";
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 	<meta name="generator" content={Astro.generator}/>
 </head>
-<body class="text-white bg-black font-inter">
+<body class="text-white bg-black font-inter relative">
 	<Header/>
 	<slot/>
 	<Footer/>
+	<canvas class="-z-10 absolute inset-0" id="animation-canvas"></canvas>
 </body>
 </html>
 
 <script>
-	// @ts-ignore
-	import * as THREE from "three";
-	// @ts-ignore
-	import WAVES from "vanta/dist/vanta.waves.min.js";
+	import { ThpaceGL } from "thpace";
 
-	WAVES({
-		THREE: THREE,
-		el: document.body,
-		mouseControls: false,
-		touchControls: false,
-		gyroControls: false,
-		minHeight: 200.00,
-		minWidth: 200.00,
-		scale: 1.00,
-		scaleMobile: 1.00,
-		color: 0x0,
-		shininess: 34.00,
-		waveHeight: 15.50,
+	const canvas = document.querySelector<HTMLCanvasElement>("#animation-canvas")!;
+
+	ThpaceGL.create(canvas, {
+		colors: ["#000000", "#222222", "#000000"],
+		triangleSize: 100,
+		maxFps: 60,
 	});
 </script>
