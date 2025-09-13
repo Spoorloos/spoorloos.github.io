@@ -29,7 +29,10 @@ import Footer from "../components/Footer.astro";
 
 	ThpaceGL.create(canvas, {
 		colors: ["#000000", "#222222", "#000000"],
-		triangleSize: 100,
+		triangleSize: 150,
 		maxFps: 60,
+		particleSettings: {
+			count: [0, 0],
+		},
 	});
 </script>
