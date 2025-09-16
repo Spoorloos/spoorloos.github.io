@@ -1,19 +1,8 @@
 ---
 import Binary from "@lucide/astro/icons/binary";
-import Menu from "@lucide/astro/icons/menu";
-
-const ANIMATE_STEP = 0.1; // seconds
-
-const NAV_LINKS = {
-    "Home": "/#",
-    "About Me": "/#about-me",
-    "Skills": "/#skills",
-    "Projects": "/#projects",
-    "Contact": "/#contact",
-} satisfies Record<string, string>;
 ---
 
-<header class="fixed top-0 z-10 flex justify-between items-center w-full gap-8 p-4 transition-colors duration-500 ease-in-out group has-checked:bg-black">
+<header class="fixed top-0 z-10 flex justify-between items-center w-full gap-8 p-4 transition-colors duration-500 ease-in-out group has-checked:bg-black delay-400 has-checked:delay-0">
     <a class="flex items-center gap-1 animate-slide-down" href="/">
         <Binary class="size-8"/>
         <h1 class="text-3xl sm:text-2xl font-bold">Mick's Portfolio</h1>
@@ -27,15 +16,10 @@ const NAV_LINKS = {
     </div>
 
     <nav class="sm:flex gap-2 absolute sm:static top-full left-0 right-0 group">
-        {Object.entries(NAV_LINKS).map(([ name, href ], index) =>
-            <a
-                href={href}
-                class="nav-link"
-                style={{
-                    animationDelay: `${index * ANIMATE_STEP}s`,
-                    transitionDelay: `${index * ANIMATE_STEP}s`,
-                }}
-            >{name}</a>
-        )}
+        <a class="nav-link delay-400 group-has-checked:delay-0" href="#">Home</a>
+        <a class="nav-link delay-300 group-has-checked:delay-100 animation-delay-100" href="#about-me">About Me</a>
+        <a class="nav-link delay-200 animation-delay-200" href="#skills">Skills</a>
+        <a class="nav-link delay-100 group-has-checked:delay-300 animation-delay-300" href="#projects">Projects</a>
+        <a class="nav-link delay-0 group-has-checked:delay-400 animation-delay-400" href="#contact">Contact</a>
     </nav>
 </header>

@@ -45,6 +45,11 @@
             transform: translateX(0%);
         }
     }
+
+    --anim-delay-100: 100ms;
+    --anim-delay-200: 200ms;
+    --anim-delay-300: 300ms;
+    --anim-delay-400: 400ms;
 }
 
 @layer components {
@@ -59,6 +64,10 @@
     .button-secondary {
         @apply hover:bg-white/10 active:bg-white/5 border border-white/15 p-2.5 rounded-full text-white/80 hover:text-white cursor-pointer transition-colors font-semibold text-shadow-md duration-100;
     }
+}
+
+@utility animation-delay-* {
+    animation-delay: --value(integer)ms;
 }
 
 /* This is for the header mobile nav */
