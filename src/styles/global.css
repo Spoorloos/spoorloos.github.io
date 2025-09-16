@@ -45,11 +45,6 @@
             transform: translateX(0%);
         }
     }
-
-    --anim-delay-100: 100ms;
-    --anim-delay-200: 200ms;
-    --anim-delay-300: 300ms;
-    --anim-delay-400: 400ms;
 }
 
 @layer components {
