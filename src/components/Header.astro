@@ -13,12 +13,20 @@ const NAV_LINKS = {
 } satisfies Record<string, string>;
 ---
 
-<header class="fixed top-0 z-10 flex justify-between w-full gap-8 p-4 has-[nav[open]]:bg-black transition-colors duration-500 ease-in-out">
+<header class="fixed top-0 z-10 flex justify-between items-center w-full gap-8 p-4 transition-colors duration-500 ease-in-out group has-checked:bg-black">
     <a class="flex items-center gap-1 animate-slide-down" href="/">
         <Binary class="size-8"/>
         <h1 class="text-3xl sm:text-2xl font-bold">Mick's Portfolio</h1>
     </a>
-    <nav class="sm:flex gap-2 absolute sm:static top-full left-0 right-0 group" id="nav-menu">
+
+    <div class="sm:hidden h-6 w-7 relative">
+        <input type="checkbox" class="absolute inset-0 cursor-pointer opacity-0 peer" id="nav-check" autocomplete="off">
+        <div class="bg-white absolute top-0 left-0 right-0 h-[0.1875rem] peer-checked:top-1/2 peer-checked:-translate-y-1/2 peer-checked:rotate-45 transition-all rounded-full pointer-events-none"/>
+        <div class="bg-white absolute top-1/2 left-0 right-0 h-[0.1875rem] -translate-y-1/2 peer-checked:opacity-0 transition-opacity rounded-full pointer-events-none"/>
+        <div class="bg-white absolute bottom-0 left-0 right-0 h-[0.1875rem] peer-checked:bottom-1/2 peer-checked:translate-y-1/2 peer-checked:-rotate-45 transition-all rounded-full pointer-events-none"/>
+    </div>
+
+    <nav class="sm:flex gap-2 absolute sm:static top-full left-0 right-0 group">
         {Object.entries(NAV_LINKS).map(([ name, href ], index) =>
             <a
                 href={href}
@@ -30,16 +38,4 @@ const NAV_LINKS = {
             >{name}</a>
         )}
     </nav>
-    <button class="sm:hidden cursor-pointer" id="nav-btn">
-        <Menu class="size-8"/>
-    </button>
 </header>
-
-<script>
-    const navBtn = document.getElementById("nav-btn")!;
-    const navMenu = document.getElementById("nav-menu")!;
-
-    navBtn.addEventListener("click", () => {
-        navMenu.toggleAttribute("open");
-    });
-</script>
