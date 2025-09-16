@@ -3,28 +3,30 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <section class="p-4 flex flex-col items-center justify-center h-screen gap-4 snap-center text-center">
-        <h2 class="text-2xl italic text-white/50 drop-shadow-xl drop-shadow-white/10">Hi, my name is Mick</h2>
-        <p class="text-6xl font-bold drop-shadow-xl drop-shadow-white/10">
-            I am a
-            <span class="text-transparent bg-linear-to-b from-[#919BFF] to-[#133A94] bg-clip-text">
-                <span id="what-am-i-heading"></span><span class="animate-fade-in-out">_</span>
-            </span>
-        </p>
-        <div class="space-x-2">
-            <a class="inline-block button-primary" href="#contact">Get in contact</a>
-            <a class="inline-block button-secondary" href="#about-me">View about me</a>
-        </div>
-    </section>
-    <section class="flex flex-col items-center justify-center h-screen gap-4 bg-red-500 snap-center" id="about-me">
-        <h2>About me</h2>
-    </section>
-    <section class="flex flex-col items-center justify-center h-screen gap-4 bg-green-500 snap-center" id="skills">
-        <h2>Skills</h2>
-    </section>
-    <section class="flex flex-col items-center justify-center h-screen gap-4 bg-blue-500 snap-center" id="contact">
-        <h2>Contact</h2>
-    </section>
+    <main>
+        <section class="p-4 flex flex-col items-center justify-center h-screen gap-4 snap-center text-center">
+            <h2 class="text-2xl italic text-white/50 drop-shadow-xl drop-shadow-white/10">Hi, my name is Mick</h2>
+            <p class="text-6xl font-bold drop-shadow-xl drop-shadow-white/10">
+                I am a
+                <span class="text-transparent bg-linear-to-b from-[#6fe3e1] to-[#5257e5] bg-clip-text">
+                    <span id="what-am-i-heading"></span><span class="animate-fade-in-out">_</span>
+                </span>
+            </p>
+            <div class="space-x-2">
+                <a class="inline-block button-primary" href="#contact">Get in contact</a>
+                <a class="inline-block button-secondary" href="#about-me">View about me</a>
+            </div>
+        </section>
+        <section class="flex flex-col items-center justify-center h-screen gap-4 bg-red-500 snap-center" id="about-me">
+            <h2>About me</h2>
+        </section>
+        <section class="flex flex-col items-center justify-center h-screen gap-4 bg-green-500 snap-center" id="skills">
+            <h2>Skills</h2>
+        </section>
+        <section class="flex flex-col items-center justify-center h-screen gap-4 bg-blue-500 snap-center" id="contact">
+            <h2>Contact</h2>
+        </section>
+    </main>
 </Layout>
 
 <script>

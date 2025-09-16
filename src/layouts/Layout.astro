@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 	<meta name="generator" content={Astro.generator}/>
 </head>
-<body class="text-white bg-black font-inter relative">
+<body class="text-white bg-black font-inter relative animate-fade-in">
 	<Header/>
 	<slot/>
 	<Footer/>
@@ -28,7 +28,7 @@ import Footer from "../components/Footer.astro";
 	const canvas = document.querySelector<HTMLCanvasElement>("#animation-canvas")!;
 
 	ThpaceGL.create(canvas, {
-		colors: ["#000000", "#222222", "#000000"],
+		colors: ["#000000", "#666666" ],
 		triangleSize: 150,
 		maxFps: 60,
 		particleSettings: {
