@@ -2,7 +2,7 @@
 import Binary from "@lucide/astro/icons/binary";
 ---
 
-<header class="fixed top-0 z-40 flex justify-between items-center w-full gap-8 p-4 transition-colors duration-500 ease-in-out peer group has-checked:bg-black delay-400 has-checked:delay-0">
+<header class="fixed top-0 z-40 flex justify-between items-center w-full gap-8 p-4 transition-colors duration-500 ease-in-out peer group not-sm:has-checked:bg-black delay-400 has-checked:delay-0">
     <a class="flex items-center gap-1 animate-slide-down" href="/">
         <Binary class="size-8"/>
         <h1 class="text-3xl sm:text-2xl font-bold">Mick's Portfolio</h1>
@@ -15,13 +15,13 @@ import Binary from "@lucide/astro/icons/binary";
         <div class="bg-white absolute bottom-0 left-0 right-0 h-[0.1875rem] peer-checked:bottom-1/2 peer-checked:translate-y-1/2 peer-checked:-rotate-45 transition-all rounded-full pointer-events-none"/>
     </div>
 
-    <nav class="sm:flex gap-2 absolute sm:static top-full left-0 right-0 drop-shadow-xl sm:drop-shadow-none drop-shadow-black/50">
-        <a class="nav-link delay-400 group-has-checked:delay-0" href="#">Home</a>
-        <a class="nav-link delay-300 group-has-checked:delay-100 animation-delay-100" href="#about-me">About Me</a>
-        <a class="nav-link delay-200 animation-delay-200" href="#skills">Skills</a>
-        <a class="nav-link delay-100 group-has-checked:delay-300 animation-delay-300" href="#projects">Projects</a>
-        <a class="nav-link delay-0 group-has-checked:delay-400 animation-delay-400" href="#contact">Contact</a>
+    <nav class="sm:flex gap-2 absolute sm:static top-full left-0 right-0 drop-shadow-xl not-sm:drop-shadow-black/50">
+        <a class="nav-link not-sm:delay-400 group-has-checked:delay-0" href="#">Home</a>
+        <a class="nav-link not-sm:delay-300 group-has-checked:delay-100 animation-delay-100" href="#about-me">About Me</a>
+        <a class="nav-link not-sm:delay-200 animation-delay-200" href="#skills">Skills</a>
+        <a class="nav-link not-sm:delay-100 group-has-checked:delay-300 animation-delay-300" href="#projects">Projects</a>
+        <a class="nav-link not-sm:delay-0 group-has-checked:delay-400 animation-delay-400" href="#contact">Contact</a>
     </nav>
 </header>
 
-<div class="fixed inset-0 backdrop-blur-xl opacity-0 peer-has-checked:opacity-100 z-30 transition-opacity duration-700 pointer-events-none peer-has-checked:pointer-events-auto"/>
+<div class="sm:hidden fixed inset-0 backdrop-blur-xl opacity-0 peer-has-checked:opacity-100 z-30 transition-opacity duration-700 pointer-events-none peer-has-checked:pointer-events-auto"/>
