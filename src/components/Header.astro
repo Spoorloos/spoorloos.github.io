@@ -2,26 +2,26 @@
 import Binary from "@lucide/astro/icons/binary";
 ---
 
-<header class="fixed top-0 z-40 flex justify-between items-center w-full gap-8 p-4 transition-colors duration-500 ease-in-out peer group not-sm:has-checked:bg-black delay-400 has-checked:delay-0">
-    <a class="flex items-center gap-1 animate-slide-down" href="/">
+<header class="fixed top-0 z-20 flex items-center justify-between w-full p-4 transition-colors duration-500 not-sm:nav-open:bg-black not-nav-open:delay-400 animate-fade-in">
+    <a class="flex items-center gap-1 animate-slide-down">
         <Binary class="size-8"/>
-        <h1 class="text-3xl sm:text-2xl font-bold">Mick's Portfolio</h1>
+        <h1 class="text-3xl font-bold sm:text-2xl">Mick's Portfolio</h1>
     </a>
 
-    <div class="sm:hidden h-6 w-7 relative animate-slide-down">
-        <input type="checkbox" class="absolute inset-0 cursor-pointer opacity-0 peer" id="nav-check" autocomplete="off">
-        <div class="bg-white absolute top-0 left-0 right-0 h-[0.1875rem] peer-checked:top-1/2 peer-checked:-translate-y-1/2 peer-checked:rotate-45 transition-all rounded-full pointer-events-none"/>
-        <div class="bg-white absolute top-1/2 left-0 right-0 h-[0.1875rem] -translate-y-1/2 peer-checked:opacity-0 transition-opacity rounded-full pointer-events-none"/>
-        <div class="bg-white absolute bottom-0 left-0 right-0 h-[0.1875rem] peer-checked:bottom-1/2 peer-checked:translate-y-1/2 peer-checked:-rotate-45 transition-all rounded-full pointer-events-none"/>
+    <div class="relative h-6 w-7 sm:hidden animate-slide-down">
+        <input type="checkbox" class="opacity-0 cursor-pointer size-full" id="nav-check" autocomplete="off"/>
+        <div class="absolute top-0 left-0 right-0 bg-white h-[0.1875rem] rounded-full nav-open:top-1/2 nav-open:-translate-y-1/2 nav-open:rotate-45 transition-all pointer-events-none"/>
+        <div class="absolute top-1/2 left-0 right-0 -translate-y-1/2 bg-white h-[0.1875rem] rounded-full nav-open:opacity-0 transition-opacity pointer-events-none"/>
+        <div class="absolute top-full left-0 right-0 -translate-y-full bg-white h-[0.1875rem] rounded-full nav-open:top-1/2 nav-open:-translate-y-1/2 nav-open:-rotate-45 transition-all pointer-events-none"/>
     </div>
 
-    <nav class="sm:flex gap-2 absolute sm:static top-full left-0 right-0 drop-shadow-md not-sm:drop-shadow-black/50">
-        <a class="nav-link not-sm:delay-400 group-has-checked:delay-0" href="#">Home</a>
-        <a class="nav-link not-sm:delay-300 group-has-checked:delay-100 animation-delay-100" href="#about-me">About Me</a>
-        <a class="nav-link not-sm:delay-200 animation-delay-200" href="#skills">Skills</a>
-        <a class="nav-link not-sm:delay-100 group-has-checked:delay-300 animation-delay-300" href="#projects">Projects</a>
-        <a class="nav-link not-sm:delay-0 group-has-checked:delay-400 animation-delay-400" href="#contact">Contact</a>
+    <nav class="not-sm:absolute left-0 right-0 top-full flex not-sm:flex-col sm:gap-2 drop-shadow-sm drop-shadow-black/50">
+        <a class="nav-link not-sm:nav-open:delay-0 not-sm:delay-400 sm:animate-slide-down" href="#">Home</a>
+        <a class="nav-link not-sm:nav-open:delay-100 not-sm:delay-300 sm:animate-slide-down animation-delay-100" href="#about-me">About Me</a>
+        <a class="nav-link not-sm:nav-open:delay-200 not-sm:delay-200 sm:animate-slide-down animation-delay-200" href="#skills">Skills</a>
+        <a class="nav-link not-sm:nav-open:delay-300 not-sm:delay-100 sm:animate-slide-down animation-delay-300" href="#projects">Projects</a>
+        <a class="nav-link not-sm:nav-open:delay-400 not-sm:delay-0 sm:animate-slide-down animation-delay-400" href="#contact">Contact</a>
     </nav>
 </header>
 
-<div class="sm:hidden fixed inset-0 backdrop-blur-xl opacity-0 peer-has-checked:opacity-100 z-30 transition-opacity duration-700 pointer-events-none peer-has-checked:pointer-events-auto"/>
+<div class="fixed inset-0 z-10 transition-opacity not-nav-open:opacity-0 not-nav-open:pointer-events-none backdrop-blur-xl sm:hidden"/>

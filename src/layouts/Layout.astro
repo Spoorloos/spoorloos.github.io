@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth snap-y snap-mandatory has-checked:overflow-hidden has-checked:max-h-lvh">
+<html lang="en" class="scroll-smooth snap-y snap-mandatory">
 <head>
 	<title>Mick's Portfolio</title>
 	<meta charset="UTF-8"/>
@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 	<meta name="generator" content={Astro.generator}/>
 </head>
-<body class="text-white bg-black font-inter relative animate-fade-in">
+<body class="text-white bg-black font-inter relative animate-fade-in nav-open:overflow-hidden">
 	<Header/>
 	<slot/>
 	<Footer/>
