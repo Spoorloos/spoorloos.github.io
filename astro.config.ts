@@ -6,8 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     site: "https://www.spoorloos.xyz/",
     vite: {
-        plugins: [
-            tailwindcss()
-        ],
+        plugins: [tailwindcss()],
     },
 });

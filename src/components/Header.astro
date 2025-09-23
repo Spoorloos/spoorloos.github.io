@@ -2,26 +2,61 @@
 import Binary from "@lucide/astro/icons/binary";
 ---
 
-<header class="fixed top-0 z-20 flex items-center justify-between w-full p-4 transition-colors duration-300 not-sm:nav-open:bg-black not-nav-open:delay-400 animate-fade-in">
-    <a class="flex items-center gap-1 animate-slide-down" href="/">
-        <Binary class="size-8"/>
+<header
+    class="not-sm:nav-open:bg-black not-nav-open:delay-400 animate-fade-in fixed top-0 z-20 flex w-full items-center justify-between p-4 transition-colors duration-300">
+    <a class="animate-slide-down flex items-center gap-1" href="/">
+        <Binary class="size-8" />
         <h1 class="text-3xl font-bold sm:text-2xl">Mick's Portfolio</h1>
     </a>
 
-    <div class="relative h-6 w-7 sm:hidden animate-slide-down">
-        <input type="checkbox" class="opacity-0 cursor-pointer size-full" id="nav-check" autocomplete="off"/>
-        <div class="absolute top-0 left-0 right-0 bg-white h-[0.1875rem] rounded-full nav-open:top-1/2 nav-open:-translate-y-1/2 nav-open:rotate-45 transition-all pointer-events-none"/>
-        <div class="absolute top-1/2 left-0 right-0 -translate-y-1/2 bg-white h-[0.1875rem] rounded-full nav-open:opacity-0 transition-opacity pointer-events-none"/>
-        <div class="absolute top-full left-0 right-0 -translate-y-full bg-white h-[0.1875rem] rounded-full nav-open:top-1/2 nav-open:-translate-y-1/2 nav-open:-rotate-45 transition-all pointer-events-none"/>
+    <div class="animate-slide-down relative h-6 w-7 sm:hidden">
+        <input
+            type="checkbox"
+            class="size-full cursor-pointer opacity-0"
+            id="nav-check"
+            autocomplete="off"
+        />
+        <div
+            class="nav-open:top-1/2 nav-open:-translate-y-1/2 nav-open:rotate-45 pointer-events-none absolute top-0 right-0 left-0 h-[0.1875rem] rounded-full bg-white transition-all">
+        </div>
+        <div
+            class="nav-open:opacity-0 pointer-events-none absolute top-1/2 right-0 left-0 h-[0.1875rem] -translate-y-1/2 rounded-full bg-white transition-opacity">
+        </div>
+        <div
+            class="nav-open:top-1/2 nav-open:-translate-y-1/2 nav-open:-rotate-45 pointer-events-none absolute top-full right-0 left-0 h-[0.1875rem] -translate-y-full rounded-full bg-white transition-all">
+        </div>
     </div>
 
-    <nav class="not-sm:absolute left-0 right-0 top-full flex not-sm:flex-col sm:gap-2">
-        <a class="nav-link not-sm:nav-open:delay-0 not-sm:delay-400" href="#">Home</a>
-        <a class="nav-link not-sm:nav-open:delay-100 not-sm:delay-300 animation-delay-100" href="#about-me">About Me</a>
-        <a class="nav-link not-sm:nav-open:delay-200 not-sm:delay-200 animation-delay-200" href="#skills">Skills</a>
-        <a class="nav-link not-sm:nav-open:delay-300 not-sm:delay-100 animation-delay-300" href="#projects">Projects</a>
-        <a class="nav-link not-sm:nav-open:delay-400 not-sm:delay-0 animation-delay-400" href="#contact">Contact</a>
+    <nav
+        class="top-full right-0 left-0 flex not-sm:absolute not-sm:flex-col sm:gap-2">
+        <a
+            class="nav-link not-sm:nav-open:delay-0 sm:animation-delay-0 not-sm:delay-400"
+            href="#">
+            Home
+        </a>
+        <a
+            class="nav-link not-sm:nav-open:delay-100 sm:animation-delay-100 not-sm:delay-300"
+            href="#about-me">
+            About Me
+        </a>
+        <a
+            class="nav-link not-sm:nav-open:delay-200 sm:animation-delay-200 not-sm:delay-200"
+            href="#skills">
+            Skills
+        </a>
+        <a
+            class="nav-link not-sm:nav-open:delay-300 sm:animation-delay-300 not-sm:delay-100"
+            href="#projects">
+            Projects
+        </a>
+        <a
+            class="nav-link not-sm:nav-open:delay-400 sm:animation-delay-400 not-sm:delay-0"
+            href="#contact">
+            Contact
+        </a>
     </nav>
 </header>
 
-<div class="fixed inset-0 z-10 transition-opacity duration-700 not-nav-open:opacity-0 not-nav-open:pointer-events-none backdrop-blur-xl sm:hidden"/>
+<div
+    class="not-nav-open:opacity-0 not-nav-open:pointer-events-none fixed inset-0 z-10 backdrop-blur-xl transition-opacity duration-700 sm:hidden">
+</div>

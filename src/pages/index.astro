@@ -1,34 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionMain from "../components/sections/SectionMain.astro";
+import SectionAbout from "../components/sections/SectionAbout.astro";
+import SectionSkills from "../components/sections/SectionSkills.astro";
+import SectionProjects from "../components/sections/SectionProjects.astro";
+import SectionContact from "../components/sections/SectionContact.astro";
 ---
 
 <Layout>
     <main>
-        <section class="main-section">
-            <h2 class="text-2xl italic text-white/50 drop-shadow-xl drop-shadow-white/10">Hi, my name is Mick</h2>
-            <p class="text-6xl font-bold drop-shadow-xl drop-shadow-white/10">
-                I am a
-                <span class="text-transparent bg-linear-to-b from-[#6fe3e1] to-[#5257e5] bg-clip-text">
-                    <span id="what-am-i-heading"></span><span class="animate-fade-in-out">_</span>
-                </span>
-            </p>
-            <div class="space-x-2">
-                <a class="inline-block button-primary" href="#contact">Get in contact</a>
-                <a class="inline-block button-secondary" href="#about-me">View about me</a>
-            </div>
-        </section>
-        <section class="main-section" id="about-me">
-            <h2>About me</h2>
-        </section>
-        <section class="main-section" id="skills">
-            <h2>Skills</h2>
-        </section>
-        <section class="main-section" id="projects">
-            <h2>Projects</h2>
-        </section>
-        <section class="main-section" id="contact">
-            <h2>Contact</h2>
-        </section>
+        <SectionMain />
+        <SectionAbout />
+        <SectionSkills />
+        <SectionProjects />
+        <SectionContact />
     </main>
 </Layout>
 
@@ -41,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
         "Linux User",
         "Low-Level Developer",
         "Problem Solver",
-        "Clean Code Advocate"
+        "Clean Code Advocate",
     ];
 
     let descriptionIndex = 0;
@@ -56,7 +41,7 @@ import Layout from "../layouts/Layout.astro";
         letterIndex = removeWord ? letterIndex - 1 : letterIndex + 1;
 
         if (removeWord && letterIndex === 0) {
-            removeWord = false
+            removeWord = false;
             descriptionIndex = (descriptionIndex + 1) % descriptions.length;
         }
 

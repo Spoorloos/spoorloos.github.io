@@ -1,11 +1,11 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animation-delay";
 
 @theme {
     --font-inter: "Inter Variable", sans-serif;
     --animate-slide-down: slide-down 0.5s ease-in-out both;
     --animate-fade-in: fade-in 0.5s ease-in-out both;
     --animate-fade-in-out: fade-in-out 1s ease-in-out both infinite;
-    --animate-slide-right: slide-right 0.5s ease-in-out both;
 
     @keyframes slide-down {
         0% {
@@ -36,53 +36,28 @@
             opacity: 0%;
         }
     }
+}
 
-    @keyframes slide-right {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(0%);
-        }
+@custom-variant nav-open {
+    :root:has(#nav-check:checked) & {
+        @slot;
     }
 }
 
 @layer components {
     .nav-link {
-        @apply text-white not-sm:font-extralight sm:text-white/75 sm:hover:text-white
-            text-xl sm:text-lg relative not-sm:after:hidden after:absolute after:left-0
-            after:bottom-0 after:right-0 after:bg-white after:h-0.5 hover:after:scale-x-100
-            after:scale-x-0 after:transition-transform block sm:inline-block p-4
-            sm:p-2 transition-all duration-300 not-sm:bg-black
-            not-sm:not-nav-open:-translate-x-full not-sm:not-nav-open:opacity-0
-            sm:animate-slide-down sm:drop-shadow-sm sm:drop-shadow-black hover:drop-shadow-white/50
-            not-sm:shadow-2xl shadow-black;
+        @apply not-sm:not-nav-open:-translate-x-full not-sm:not-nav-open:opacity-0 sm:animate-slide-down relative block p-4 text-xl text-white shadow-black transition-all duration-300 not-sm:bg-black not-sm:font-extralight not-sm:shadow-2xl after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:scale-x-0 after:bg-white after:transition-transform not-sm:after:hidden hover:drop-shadow-white/50 hover:after:scale-x-100 sm:inline-block sm:p-2 sm:text-lg sm:text-white/75 sm:drop-shadow-sm sm:drop-shadow-black sm:hover:text-white;
     }
 
     .button-primary {
-        @apply bg-white/10 hover:bg-white/15 drop-shadow-lg
-            drop-shadow-white/10 active:bg-white/10 border border-white/15
-            p-2.5 rounded-full text-white/80 hover:text-white cursor-pointer
-            transition-colors font-semibold text-shadow-md duration-100;
+        @apply cursor-pointer rounded-full border border-white/15 bg-white/10 p-2.5 font-semibold text-white/80 drop-shadow-lg drop-shadow-white/10 transition-colors duration-100 text-shadow-md hover:bg-white/15 hover:text-white active:bg-white/10;
     }
 
     .button-secondary {
-        @apply hover:bg-white/10 active:bg-white/5 border border-white/15
-            p-2.5 rounded-full text-white/80 hover:text-white cursor-pointer
-            transition-colors font-semibold text-shadow-md duration-100;
+        @apply cursor-pointer rounded-full border border-white/15 p-2.5 font-semibold text-white/80 transition-colors duration-100 text-shadow-md hover:bg-white/10 hover:text-white active:bg-white/5;
     }
 
     .main-section {
-        @apply flex flex-col items-center justify-center gap-4 p-4 text-center h-lvh snap-center;
-    }
-}
-
-@utility animation-delay-* {
-    animation-delay: --value(integer)ms;
-}
-
-@custom-variant nav-open {
-    :root:has( #nav-check:checked) & {
-        @slot;
+        @apply flex h-lvh snap-center flex-col items-center justify-center gap-4 p-4 text-center;
     }
 }

@@ -5,34 +5,36 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth snap-y snap-mandatory">
-<head>
-	<title>Mick's Portfolio</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width"/>
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-	<meta name="generator" content={Astro.generator}/>
-</head>
-<body class="text-white bg-black font-inter relative animate-fade-in nav-open:overflow-hidden">
-	<Header/>
-	<slot/>
-	<Footer/>
-	<canvas class="-z-10 fixed inset-0" id="animation-canvas"></canvas>
-</body>
+<!doctype html>
+<html lang="en" class="snap-y snap-mandatory scroll-smooth">
+    <head>
+        <title>Mick's Portfolio</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+    </head>
+    <body
+        class="font-inter animate-fade-in nav-open:overflow-hidden relative bg-black text-white">
+        <Header />
+        <slot />
+        <Footer />
+        <canvas class="fixed inset-0 -z-10" id="animation-canvas"></canvas>
+    </body>
 </html>
 
 <script>
-	import { ThpaceGL } from "thpace";
+    import { ThpaceGL } from "thpace";
 
-	const canvas = document.querySelector<HTMLCanvasElement>("#animation-canvas")!;
+    const canvas =
+        document.querySelector<HTMLCanvasElement>("#animation-canvas")!;
 
-	ThpaceGL.create(canvas, {
-		colors: ["#000000", "#666666" ],
-		triangleSize: 150,
-		maxFps: 60,
-		particleSettings: {
-			count: [0, 0],
-		},
-	});
+    ThpaceGL.create(canvas, {
+        colors: ["#000000", "#666666"],
+        triangleSize: 150,
+        maxFps: 60,
+        particleSettings: {
+            count: [0, 0],
+        },
+    });
 </script>

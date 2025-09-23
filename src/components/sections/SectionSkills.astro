@@ -1,0 +1,31 @@
+---
+import SkillCard from "../SkillCard.astro";
+---
+
+<section class="main-section" id="skills">
+    <div class="space-y-4 text-center">
+        <h2 class="text-4xl font-bold">My Skills</h2>
+        <p class="text-xl font-extralight text-zinc-300 italic">
+            The skills and tools that keep my projects running.
+        </p>
+        <div
+            class="flex max-h-full flex-wrap justify-center gap-x-8 gap-y-3 overflow-hidden text-left">
+            <ul class="inline-flex flex-col gap-3">
+                <SkillCard title="Javascript" percent={100} />
+                <SkillCard title="Typescript" percent={90} />
+                <SkillCard title="HTML" percent={95} />
+                <SkillCard title="CSS" percent={95} />
+                <SkillCard title="Tailwind" percent={90} />
+                <SkillCard title="React" percent={90} />
+            </ul>
+            <ul class="inline-flex flex-col gap-3">
+                <SkillCard title="NextJS" percent={85} />
+                <SkillCard title="Svelte" percent={60} />
+                <SkillCard title="SvelteKit" percent={50} />
+                <SkillCard title="C++" percent={65} />
+                <SkillCard title="Rust" percent={40} />
+                <SkillCard title="Lua" percent={100} />
+            </ul>
+        </div>
+    </div>
+</section>
