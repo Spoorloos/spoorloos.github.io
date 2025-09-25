@@ -3,13 +3,13 @@ import Binary from "@lucide/astro/icons/binary";
 ---
 
 <header
-    class="not-sm:nav-open:bg-black not-nav-open:delay-400 animate-fade-in fixed top-0 z-20 flex w-full items-center justify-between p-4 transition-colors duration-300">
-    <a class="animate-slide-down flex items-center gap-1" href="/">
+    class="not-sm:nav-open:bg-black not-nav-open:delay-400 fixed top-0 z-20 flex w-full items-center justify-between p-4 transition-colors duration-300">
+    <a class="animate-fade-down flex items-center gap-1" href="/">
         <Binary class="size-8" />
         <h1 class="text-3xl font-bold sm:text-2xl">Mick's Portfolio</h1>
     </a>
 
-    <div class="animate-slide-down relative h-6 w-7 sm:hidden">
+    <div class="animate-fade-down relative h-6 w-7 sm:hidden">
         <input
             type="checkbox"
             class="size-full cursor-pointer opacity-0"
@@ -30,27 +30,27 @@ import Binary from "@lucide/astro/icons/binary";
     <nav
         class="top-full right-0 left-0 flex not-sm:absolute not-sm:flex-col sm:gap-2">
         <a
-            class="nav-link not-sm:nav-open:delay-0 sm:animation-delay-0 not-sm:delay-400"
+            class="nav-link not-sm:nav-open:delay-0 sm:animate-delay-none not-sm:delay-400"
             href="#">
             Home
         </a>
         <a
-            class="nav-link not-sm:nav-open:delay-100 sm:animation-delay-100 not-sm:delay-300"
+            class="nav-link not-sm:nav-open:delay-100 sm:animate-delay-100 not-sm:delay-300"
             href="#about-me">
             About Me
         </a>
         <a
-            class="nav-link not-sm:nav-open:delay-200 sm:animation-delay-200 not-sm:delay-200"
+            class="nav-link not-sm:nav-open:delay-200 sm:animate-delay-200 not-sm:delay-200"
             href="#skills">
             Skills
         </a>
         <a
-            class="nav-link not-sm:nav-open:delay-300 sm:animation-delay-300 not-sm:delay-100"
+            class="nav-link not-sm:nav-open:delay-300 sm:animate-delay-300 not-sm:delay-100"
             href="#projects">
             Projects
         </a>
         <a
-            class="nav-link not-sm:nav-open:delay-400 sm:animation-delay-400 not-sm:delay-0"
+            class="nav-link not-sm:nav-open:delay-400 sm:animate-delay-400 not-sm:delay-0"
             href="#contact">
             Contact
         </a>

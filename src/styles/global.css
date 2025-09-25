@@ -1,29 +1,9 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animation-delay";
+@import "tailwindcss-animated";
 
 @theme {
     --font-inter: "Inter Variable", sans-serif;
-    --animate-slide-down: slide-down 0.5s ease-in-out both;
-    --animate-fade-in: fade-in 0.5s ease-in-out both;
-    --animate-fade-in-out: fade-in-out 1s ease-in-out both infinite;
-
-    @keyframes slide-down {
-        0% {
-            transform: translateY(-100%);
-        }
-        100% {
-            transform: translateY(0%);
-        }
-    }
-
-    @keyframes fade-in {
-        0% {
-            opacity: 0%;
-        }
-        100% {
-            opacity: 100%;
-        }
-    }
+    --animate-fade-in-out: fade-in-out 500ms both infinite;
 
     @keyframes fade-in-out {
         0% {
@@ -46,7 +26,7 @@
 
 @layer components {
     .nav-link {
-        @apply not-sm:not-nav-open:-translate-x-full not-sm:not-nav-open:opacity-0 sm:animate-slide-down relative block p-4 text-xl text-white shadow-black transition-all duration-300 not-sm:bg-black not-sm:font-extralight not-sm:shadow-2xl after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:scale-x-0 after:bg-white after:transition-transform not-sm:after:hidden hover:drop-shadow-white/50 hover:after:scale-x-100 sm:inline-block sm:p-2 sm:text-lg sm:text-white/75 sm:drop-shadow-sm sm:drop-shadow-black sm:hover:text-white;
+        @apply not-sm:not-nav-open:-translate-x-full not-sm:not-nav-open:opacity-0 sm:animate-fade-down relative block p-4 text-xl text-white shadow-black transition-all duration-300 not-sm:bg-black not-sm:font-extralight not-sm:shadow-2xl after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:scale-x-0 after:bg-white after:transition-transform not-sm:after:hidden hover:drop-shadow-white/50 hover:after:scale-x-100 sm:inline-block sm:p-2 sm:text-lg sm:text-white/75 sm:drop-shadow-sm sm:drop-shadow-black sm:hover:text-white;
     }
 
     .button-primary {

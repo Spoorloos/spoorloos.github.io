@@ -5,12 +5,10 @@
     </h2>
     <p class="text-6xl font-bold drop-shadow-xl drop-shadow-white/10">
         I am a
+        <!-- prettier-ignore -->
         <span
-            class="bg-linear-to-b from-[#6fe3e1] to-[#5257e5] bg-clip-text text-transparent">
-            <span id="what-am-i-heading"></span><span
-                class="animate-fade-in-out">
-                _
-            </span>
+            class={String.raw`after:animate-fade-in-out bg-linear-to-b from-[#6fe3e1] to-[#5257e5] bg-clip-text text-transparent after:content-['\_']`}
+            id="description-text">
         </span>
     </p>
     <div class="space-x-2">
@@ -24,7 +22,7 @@
 </section>
 
 <script>
-    const headingElement = document.getElementById("what-am-i-heading")!;
+    const descText = document.getElementById("description-text")!;
     const descriptions = [
         "Full-Stack Developer",
         "React & Next.js Enthusiast",
@@ -42,7 +40,7 @@
     function showNextLetter() {
         const currentDescription = descriptions[descriptionIndex];
 
-        headingElement.innerText = currentDescription.slice(0, letterIndex);
+        descText.innerText = currentDescription.slice(0, letterIndex);
 
         letterIndex = removeWord ? letterIndex - 1 : letterIndex + 1;
 
