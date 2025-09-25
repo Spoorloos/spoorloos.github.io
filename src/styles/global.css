@@ -3,7 +3,7 @@
 
 @theme {
     --font-inter: "Inter Variable", sans-serif;
-    --animate-fade-in-out: fade-in-out 500ms both infinite;
+    --animate-fade-in-out: fade-in-out 1s both infinite;
 
     @keyframes fade-in-out {
         0% {
