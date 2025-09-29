@@ -19,7 +19,7 @@
 }
 
 @custom-variant nav-open {
-    :root:has(#nav-check:checked) & {
+    :root.nav-open & {
         @slot;
     }
 }

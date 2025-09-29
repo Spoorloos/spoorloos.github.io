@@ -2,19 +2,21 @@
 type Props = {
     title: string;
     percent: number;
+    hidden?: boolean;
 };
 
-const { title, percent } = Astro.props;
+const { title, percent, hidden = false } = Astro.props;
 ---
 
-<li class="skill-card group flex flex-col gap-1">
+<li
+    class={`skill-card group flex flex-col gap-1 ${hidden ? "opacity-20 cursor-not-allowed" : ""}`}>
     <h3
-        class="text-xl font-light text-white/70 transition-colors text-shadow-black text-shadow-md group-hover:text-white">
+        class={`text-xl font-light text-white/70 transition-colors text-shadow-black text-shadow-md ${hidden ? "" : "group-hover:text-white"}`}>
         {title}
     </h3>
-    <div class="h-5 w-xl rounded-full bg-white/10 p-0.5">
+    <div class="h-2 w-full max-w-xl bg-white/10 p-0.5">
         <div
-            class="h-full origin-left scale-x-0 rounded-full bg-linear-0 from-[#6095FF] to-[#4180FF] transition-transform duration-1000 group-data-visible:scale-x-100"
+            class="h-full origin-left scale-x-0 bg-linear-0 from-[#6095FF] to-[#4180FF] transition-transform duration-1000 group-[.visible]:scale-x-100"
             style={{ width: `${percent}%` }}>
         </div>
     </div>
@@ -23,10 +25,10 @@ const { title, percent } = Astro.props;
 <script>
     const observer = new IntersectionObserver((entries) => {
         for (const entry of entries) {
-            if (entry.isIntersecting) {
-                (entry.target as HTMLElement).dataset.visible = "";
-                observer.unobserve(entry.target);
-            }
+            (entry.target as HTMLElement).classList.toggle(
+                "visible",
+                entry.isIntersecting
+            );
         }
     });
 
