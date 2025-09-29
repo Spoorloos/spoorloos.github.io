@@ -38,6 +38,6 @@
     }
 
     .main-section {
-        @apply flex h-lvh snap-center flex-col items-center justify-center gap-4 p-4 text-center;
+        @apply flex h-lvh snap-center flex-col items-center justify-center gap-4 p-4 text-center not-sm:pt-20;
     }
 }
