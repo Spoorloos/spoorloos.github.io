@@ -3,11 +3,11 @@ import SkillCard from "../SkillCard.astro";
 import ChevronDown from "@lucide/astro/icons/chevron-down";
 ---
 
-<section class="main-section p-16">
+<section class="main-section p-16" id="skills">
     <div class="flex h-full w-full flex-col items-center justify-center gap-4">
         <div
             class="max-h-5/6 w-full max-w-3xl space-y-4 overflow-auto text-center"
-            id="skills">
+            id="skills-container">
             <h2 class="text-4xl font-bold">My Skills</h2>
             <p class="text-xl font-extralight text-zinc-300 italic">
                 The skills and tools that keep my projects running.
@@ -42,7 +42,7 @@ import ChevronDown from "@lucide/astro/icons/chevron-down";
 </section>
 
 <script>
-    const skillsElement = document.getElementById("skills")!;
+    const skillsContainer = document.getElementById("skills-container")!;
     const scrollBtn = document.getElementById("skills-scroll-btn")!;
 
     const observer = new ResizeObserver((entries) => {
@@ -54,11 +54,11 @@ import ChevronDown from "@lucide/astro/icons/chevron-down";
         }
     });
 
-    observer.observe(skillsElement);
+    observer.observe(skillsContainer);
 
     scrollBtn.addEventListener("click", () => {
-        skillsElement.scroll({
-            top: skillsElement.scrollHeight,
+        skillsContainer.scroll({
+            top: skillsContainer.scrollHeight,
             behavior: "smooth",
         });
     });
