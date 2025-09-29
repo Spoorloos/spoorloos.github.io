@@ -16,7 +16,7 @@ const { title, percent, hidden = false } = Astro.props;
     </h3>
     <div class="h-2 w-full max-w-xl bg-white/10 p-0.5">
         <div
-            class="h-full origin-left scale-x-0 bg-linear-0 from-[#6095FF] to-[#4180FF] transition-transform duration-1000 group-[.visible]:scale-x-100"
+            class="h-full origin-left scale-x-0 bg-linear-to-b from-[#6fe3e1] to-[#5257e5] transition-transform duration-1000 group-[.visible]:scale-x-100"
             style={{ width: `${percent}%` }}>
         </div>
     </div>
@@ -25,10 +25,7 @@ const { title, percent, hidden = false } = Astro.props;
 <script>
     const observer = new IntersectionObserver((entries) => {
         for (const entry of entries) {
-            (entry.target as HTMLElement).classList.toggle(
-                "visible",
-                entry.isIntersecting
-            );
+            entry.target.classList.toggle("visible", entry.isIntersecting);
         }
     });
 

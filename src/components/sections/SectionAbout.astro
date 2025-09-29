@@ -2,19 +2,22 @@
 import ArrowRight from "@lucide/astro/icons/arrow-right";
 ---
 
-<section class="main-section s" id="about-me">
-    <div class="flex items-center gap-16 not-sm:flex-col">
+<section class="main-section" id="about-me">
+    <div
+        class="group flex items-center gap-16 not-sm:flex-col"
+        id="about-me-content">
         <img
-            class="size-64 rounded-full shadow-2xl shadow-gray-500/50"
+            class="size-64 rounded-full opacity-0 shadow-2xl shadow-gray-500/50 transition-opacity duration-1000 group-[.visible]:opacity-100"
             src="/pfp.jpg"
             alt="Profile picture"
         />
         <div class="flex flex-col gap-4 text-left">
             <h2
-                class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+                class="-translate-x-12 text-4xl leading-none font-extrabold tracking-tight text-white opacity-0 transition-all duration-1000 ease-in-out group-[.visible]:translate-x-0 group-[.visible]:opacity-100 md:text-5xl lg:text-6xl">
                 About me
             </h2>
-            <p class="max-w-xl text-lg font-normal text-gray-400 lg:text-xl">
+            <p
+                class="max-w-xl -translate-x-12 text-lg font-normal text-gray-400 opacity-0 transition-all delay-200 duration-1000 ease-in-out group-[.visible]:translate-x-0 group-[.visible]:opacity-100 lg:text-xl">
                 I'm an 18-year-old software developer from the Netherlands,
                 currently studying web development at a college in Amsterdam. In
                 my free time I enjoy working on web projects, writing cheats for
@@ -24,9 +27,20 @@ import ArrowRight from "@lucide/astro/icons/arrow-right";
             </p>
             <a
                 href="#contact"
-                class="flex items-center gap-2 text-lg text-blue-500 hover:underline">
+                class="flex -translate-x-12 items-center gap-2 text-lg text-[#5257e5] opacity-0 transition-all delay-400 duration-1000 ease-in-out group-[.visible]:translate-x-0 group-[.visible]:opacity-100 hover:underline">
                 Get in contact <ArrowRight class="inline" />
             </a>
         </div>
     </div>
 </section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            entry.target.classList.toggle("visible", entry.isIntersecting);
+            console.log(entry.isIntersecting);
+        }
+    });
+
+    observer.observe(document.getElementById("about-me-content")!);
+</script>
