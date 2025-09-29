@@ -14,12 +14,14 @@ import Footer from "../components/Footer.astro";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
     </head>
-    <body
-        class="font-inter nav-open:overflow-hidden relative bg-black text-white">
+    <body class="font-inter nav-open:overflow-hidden bg-black text-white">
         <Header />
         <slot />
         <Footer />
-        <canvas class="fixed inset-0 -z-10" id="animation-canvas"></canvas>
+        <canvas
+            class="pointer-events-none fixed inset-0 -z-10"
+            id="animation-canvas">
+        </canvas>
     </body>
 </html>
 
