@@ -13,7 +13,7 @@ type Props = {
 const { name, year, schoolYear, type, image, href } = Astro.props;
 ---
 
-<a {href}>
+<a {href} target="_blank">
     <li
         class="project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100">
         <Image
