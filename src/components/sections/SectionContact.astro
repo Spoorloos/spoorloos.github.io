@@ -10,12 +10,14 @@ import Telegram from "simple-icons-astro/Telegram";
     </h2>
     <p class="text-xl font-extralight text-zinc-300 italic">Get in contact with me.</p>
     <form
+        action="https://formspree.io/f/xgvnklrj"
+        method="post"
         class="flex scale-0 flex-col gap-3 opacity-0 transition-transform duration-1000 ease-in-out [.visible]:scale-100 [.visible]:opacity-100"
-        id="contact-form"
-        autocomplete="off">
+        autocomplete="off"
+        id="contact-form">
         <div class="flex flex-wrap gap-3">
             <input
-                class="contact-input sending-hide flex-1"
+                class="contact-input flex-1"
                 type="text"
                 name="first_name"
                 minlength={1}
@@ -24,7 +26,7 @@ import Telegram from "simple-icons-astro/Telegram";
                 required
             />
             <input
-                class="contact-input sending-hide flex-1"
+                class="contact-input flex-1"
                 type="text"
                 name="last_name"
                 minlength={2}
@@ -34,7 +36,7 @@ import Telegram from "simple-icons-astro/Telegram";
             />
         </div>
         <input
-            class="contact-input sending-hide"
+            class="contact-input"
             type="email"
             name="email"
             placeholder="email@example.com"
@@ -43,13 +45,13 @@ import Telegram from "simple-icons-astro/Telegram";
         <!-- prettier-ignore -->
         <Fragment>
             <textarea
-                class="contact-input sending-hide"
+                class="contact-input"
                 name="message"
                 placeholder="Enter your message"
                 required/>
         </Fragment>
         <div class="flex items-stretch justify-between gap-2">
-            <div class="flex items-stretch gap-2">
+            <nav class="flex items-stretch gap-2">
                 <a
                     class="button-secondary rounded-lg py-2"
                     href="https://github.com/Spoorloos/"
@@ -62,45 +64,14 @@ import Telegram from "simple-icons-astro/Telegram";
                     target="_blank">
                     <Telegram />
                 </a>
-            </div>
-            <button class="button-primary sending-hide rounded-lg px-3 py-2" type="submit">
-                Send
-            </button>
+            </nav>
+            <button class="button-primary rounded-lg px-3 py-2" type="submit">Send</button>
         </div>
-        <p class="hidden text-lg font-medium text-green-400 group-[.sent]:block">
-            Your message was sent!
-        </p>
     </form>
 </section>
 
 <script>
-    const contactSection = document.querySelector<HTMLElement>("#contact")!;
     const form = document.querySelector<HTMLFormElement>("#contact-form")!;
-
-    form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        contactSection.classList.toggle("sending", true);
-
-        const response = await fetch("https://formspree.io/f/xgvnklrj", {
-            method: "POST",
-            body: new FormData(form),
-            headers: {
-                Accept: "application/json",
-            },
-        });
-
-        const parsed = await response.json();
-
-        if (parsed?.ok) {
-            form.reset();
-            contactSection.classList.toggle("sent", true);
-        } else {
-            console.log("Something went wrong and we couldn't submit the form");
-        }
-
-        contactSection.classList.toggle("sending", false);
-    });
 
     const observer = new IntersectionObserver((entries) => {
         form.classList.toggle("visible", entries[0].isIntersecting);
