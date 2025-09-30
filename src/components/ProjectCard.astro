@@ -12,7 +12,7 @@ const { name, year, type, image } = Astro.props;
 ---
 
 <li
-    class="project-card group relative flex aspect-video h-40 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left shadow-lg shadow-black/10">
+    class="project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100">
     <Image
         class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
         src={image}
@@ -22,9 +22,7 @@ const { name, year, type, image } = Astro.props;
         <h3 class="text-xl font-bold text-shadow-black/50 text-shadow-xs">
             {name}
         </h3>
-        <time
-            class="font-light text-shadow-black/50 text-shadow-sm"
-            datetime={year.toString()}>
+        <time class="font-light text-shadow-black/50 text-shadow-sm" datetime={year.toString()}>
             {year}
         </time>
     </div>
@@ -38,11 +36,22 @@ const { name, year, type, image } = Astro.props;
 </li>
 
 <script>
-    const projectCards = document.getElementsByClassName("project-card");
+    const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            entry.target.classList.toggle("visible", entry.isIntersecting);
+        }
+    });
 
-    for (const card of projectCards) {
+    const projectCards = document.querySelectorAll<HTMLLIElement>(".project-card");
+    for (let i = 0; i < projectCards.length; i++) {
+        const card = projectCards[i];
+
+        card.style.transitionDelay = `${i * 100}ms`;
+
         card.addEventListener("click", () => {
             card.classList.toggle("open");
         });
+
+        observer.observe(card);
     }
 </script>

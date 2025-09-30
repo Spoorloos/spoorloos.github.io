@@ -32,9 +32,7 @@ const { title, percent, hidden = false } = Astro.props;
         }
     });
 
-    const skillCards = document.getElementsByClassName("skill-card");
-
-    for (const card of skillCards) {
+    for (const card of document.querySelectorAll<HTMLLIElement>(".skill-card")) {
         observer.observe(card);
     }
 </script>

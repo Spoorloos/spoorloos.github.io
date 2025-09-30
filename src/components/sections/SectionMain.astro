@@ -1,6 +1,5 @@
-<section class="main-section">
-    <h2
-        class="text-2xl text-white/50 italic drop-shadow-xl drop-shadow-white/10">
+<section class="main-section animate-fade">
+    <h2 class="text-2xl text-white/50 italic drop-shadow-xl drop-shadow-white/10">
         Hi, my name is Mick
     </h2>
     <p class="text-6xl font-bold drop-shadow-xl drop-shadow-white/10">
@@ -11,17 +10,13 @@
         </span>
     </p>
     <div class="space-x-2">
-        <a class="button-primary inline-block" href="#contact">
-            Get in contact
-        </a>
-        <a class="button-secondary inline-block" href="#projects">
-            View projects
-        </a>
+        <a class="button-primary inline-block" href="#contact">Get in contact</a>
+        <a class="button-secondary inline-block" href="#projects">View projects</a>
     </div>
 </section>
 
 <script>
-    const descText = document.getElementById("description-text")!;
+    const descText = document.querySelector<HTMLSpanElement>("#description-text")!;
     const descriptions = [
         "Full-Stack Developer",
         "React & Next.js Enthusiast",
