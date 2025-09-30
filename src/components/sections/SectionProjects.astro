@@ -14,10 +14,45 @@ import ScrollableContainer from "../ScrollableContainer.astro";
     </h2>
     <p class="text-xl font-extralight text-zinc-300 italic">My personal and school projects.</p>
     <ScrollableContainer wrapperClass="max-w-6xl" class="flex flex-wrap justify-center gap-4">
-        <ProjectCard name="Roblox Executor" year={2023} type="personal" image={RobloxHouse} />
-        <ProjectCard name="Websocket Chatroom" year={2024} type="personal" image={WSChat} />
-        <ProjectCard name="S.V. Unity" year={2025} type="school" image={SVUnity} />
-        <ProjectCard name="Museum Online" year={2024} type="school" image={MuseumOnline} />
-        <ProjectCard name="Drukkerij AGS" year={2025} type="school" image={DrukkerijAGS} />
+        <ProjectCard
+            name="Roblox Executor"
+            year={2023}
+            schoolYear="1st year"
+            type="personal"
+            image={RobloxHouse}
+            href="https://github.com/Spoorloos/uwp_executor"
+        />
+        <ProjectCard
+            name="Museum Online"
+            schoolYear="1st year"
+            year={2023}
+            type="school"
+            image={MuseumOnline}
+            href="https://github.com/Spoorloos/bo_museum_online"
+        />
+        <ProjectCard
+            name="Websocket Chatroom"
+            year={2024}
+            schoolYear="2nd year"
+            type="personal"
+            image={WSChat}
+            href="https://github.com/Spoorloos/ws_chat/"
+        />
+        <ProjectCard
+            name="S.V. Unity"
+            schoolYear="2nd year"
+            year={2025}
+            type="school"
+            image={SVUnity}
+            href="https://github.com/Spoorloos/bo_sv_unity"
+        />
+        <ProjectCard
+            name="Drukkerij AGS"
+            schoolYear="2nd year"
+            year={2025}
+            type="school"
+            image={DrukkerijAGS}
+            href="https://github.com/Spoorloos/skill_drukkerij_ags"
+        />
     </ScrollableContainer>
 </section>

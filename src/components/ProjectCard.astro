@@ -4,36 +4,36 @@ import { Image } from "astro:assets";
 type Props = {
     name: string;
     year: number;
+    schoolYear: string;
     type: "personal" | "school";
     image: ImageMetadata;
+    href: string;
 };
 
-const { name, year, type, image } = Astro.props;
+const { name, year, schoolYear, type, image, href } = Astro.props;
 ---
 
-<li
-    class="project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100">
-    <Image
-        class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
-        src={image}
-        alt={name}
-    />
-    <div class="z-10 p-2">
-        <h3 class="text-xl font-bold text-shadow-black/50 text-shadow-xs">
-            {name}
-        </h3>
-        <time class="font-light text-shadow-black/50 text-shadow-sm" datetime={year.toString()}>
-            {year}
-        </time>
-    </div>
-    <p class="z-10 w-full bg-black/20 p-1 text-center font-bold capitalize">
-        {type}
-    </p>
-    <div
-        class="invisible fixed top-1/2 left-1/2 -translate-1/2 scale-0 bg-black transition-all group-[.open]:visible group-[.open]:scale-100">
-        <p>Hello World</p>
-    </div>
-</li>
+<a {href}>
+    <li
+        class="project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100">
+        <Image
+            class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
+            src={image}
+            alt={name}
+        />
+        <div class="z-10 p-2">
+            <h3 class="text-xl font-bold text-shadow-black/50 text-shadow-xs">
+                {name}
+            </h3>
+            <time class="font-light text-shadow-black/50 text-shadow-sm" datetime={year.toString()}>
+                {year} | {schoolYear}
+            </time>
+        </div>
+        <p class="z-10 w-full bg-black/20 p-1 text-center font-bold capitalize">
+            {type}
+        </p>
+    </li>
+</a>
 
 <script>
     const observer = new IntersectionObserver((entries) => {
@@ -47,10 +47,6 @@ const { name, year, type, image } = Astro.props;
         const card = projectCards[i];
 
         card.style.transitionDelay = `${i * 100}ms`;
-
-        card.addEventListener("click", () => {
-            card.classList.toggle("open");
-        });
 
         observer.observe(card);
     }
