@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
     name: string;
@@ -8,14 +9,18 @@ type Props = {
     type: "personal" | "school";
     image: ImageMetadata;
     href: string;
+    class?: string;
 };
 
-const { name, year, schoolYear, type, image, href } = Astro.props;
+const { name, year, schoolYear, type, image, href, class: className } = Astro.props;
 ---
 
 <a {href} target="_blank">
     <li
-        class="project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100">
+        class={twMerge(
+            "project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
+            className
+        )}>
         <Image
             class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
             src={image}
@@ -42,12 +47,7 @@ const { name, year, schoolYear, type, image, href } = Astro.props;
         }
     });
 
-    const projectCards = document.querySelectorAll<HTMLLIElement>(".project-card");
-    for (let i = 0; i < projectCards.length; i++) {
-        const card = projectCards[i];
-
-        card.style.transitionDelay = `${i * 100}ms`;
-
+    for (const card of document.querySelectorAll<HTMLLIElement>(".project-card")) {
         observer.observe(card);
     }
 </script>
