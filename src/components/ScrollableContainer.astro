@@ -11,7 +11,11 @@ const { class: className, wrapperClass } = Astro.props;
 ---
 
 <div class={twMerge("scrollable-container flex flex-col items-center gap-4", wrapperClass)}>
-    <div class={twMerge("scrollable-content overflow-auto w-full max-h-96", className)}>
+    <div
+        class={twMerge(
+            "scrollable-content overflow-x-hidden overflow-y-auto w-full max-h-96",
+            className
+        )}>
         <slot />
     </div>
     <button type="button" class="scroll-btn hidden cursor-pointer [.scrollable]:block">
