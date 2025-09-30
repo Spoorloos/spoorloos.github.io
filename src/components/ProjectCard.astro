@@ -7,12 +7,22 @@ type Props = {
     year: number;
     schoolYear: string;
     type: "personal" | "school";
+    groupProject?: boolean;
     image: ImageMetadata;
     href: string;
     class?: string;
 };
 
-const { name, year, schoolYear, type, image, href, class: className } = Astro.props;
+const {
+    name,
+    year,
+    schoolYear,
+    type,
+    image,
+    href,
+    groupProject = false,
+    class: className,
+} = Astro.props;
 ---
 
 <a {href} target="_blank">
@@ -34,8 +44,9 @@ const { name, year, schoolYear, type, image, href, class: className } = Astro.pr
                 {year} | {schoolYear}
             </time>
         </div>
-        <p class="z-10 w-full bg-black/20 p-1 text-center font-bold capitalize">
-            {type}
+        <p class="z-10 w-full bg-black/20 p-1 text-center">
+            <span class="font-bold capitalize">{type}</span>
+            {groupProject && <span class="font-light">- group project</span>}
         </p>
     </li>
 </a>
