@@ -42,6 +42,10 @@
     }
 
     .contact-input {
-        @apply rounded-xl border border-white/15 p-2.5 text-white/80 transition-colors duration-100 outline-none text-shadow-md group-[.sent]:pointer-events-none group-[.sent]:opacity-50 hover:text-white;
+        @apply rounded-xl border border-white/15 p-2.5 text-white/80 transition-colors duration-100 outline-none text-shadow-md hover:text-white;
+    }
+
+    .sending-hide {
+        @apply transition-opacity duration-100 ease-in-out group-[.sending]:pointer-events-none group-[.sending]:opacity-50;
     }
 }
