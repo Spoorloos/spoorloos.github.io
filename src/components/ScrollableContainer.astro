@@ -1,0 +1,39 @@
+---
+import ChevronDown from "@lucide/astro/icons/chevron-down";
+import { twMerge } from "tailwind-merge";
+
+type Props = {
+    class?: string;
+    wrapperClass?: string;
+};
+
+const { class: className, wrapperClass } = Astro.props;
+---
+
+<div class={twMerge("scrollable-container flex flex-col items-center gap-4", wrapperClass)}>
+    <div class={twMerge("scrollable-content overflow-auto w-full max-h-96", className)}>
+        <slot />
+    </div>
+    <button type="button" class="scroll-btn hidden cursor-pointer [.scrollable]:block">
+        <ChevronDown class="size-8 animate-bounce" />
+    </button>
+</div>
+
+<script>
+    for (const container of document.querySelectorAll<HTMLDivElement>(".scrollable-container")) {
+        const content = container.querySelector<HTMLDivElement>(".scrollable-content")!;
+        const button = container.querySelector<HTMLButtonElement>(".scroll-btn")!;
+
+        const observer = new ResizeObserver(() => {
+            button.classList.toggle("scrollable", content.scrollHeight > content.offsetHeight);
+        });
+        observer.observe(container);
+
+        button.addEventListener("click", () => {
+            content.scroll({
+                top: content.scrollHeight,
+                behavior: "smooth",
+            });
+        });
+    }
+</script>

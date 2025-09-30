@@ -5,47 +5,19 @@ import WSChat from "../../assets/ws_chat.png";
 import SVUnity from "../../assets/sv_unity.png";
 import MuseumOnline from "../../assets/museum_online.png";
 import DrukkerijAGS from "../../assets/drukkerij_ags.png";
+import ScrollableContainer from "../ScrollableContainer.astro";
 ---
 
 <section class="main-section" id="projects">
-    <h2
-        class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
+    <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
         My Projects
     </h2>
-    <p class="text-xl font-extralight text-zinc-300 italic">
-        My personal and school projects.
-    </p>
-    <ul
-        class="flex max-h-3/4 max-w-6xl flex-wrap justify-center gap-4 overflow-auto">
-        <ProjectCard
-            name="Roblox Executor"
-            year={2023}
-            type="personal"
-            image={RobloxHouse}
-        />
-        <ProjectCard
-            name="Websocket Chatroom"
-            year={2024}
-            type="personal"
-            image={WSChat}
-        />
-        <ProjectCard
-            name="S.V. Unity"
-            year={2025}
-            type="school"
-            image={SVUnity}
-        />
-        <ProjectCard
-            name="Museum Online"
-            year={2024}
-            type="school"
-            image={MuseumOnline}
-        />
-        <ProjectCard
-            name="Drukkerij AGS"
-            year={2025}
-            type="school"
-            image={DrukkerijAGS}
-        />
-    </ul>
+    <p class="text-xl font-extralight text-zinc-300 italic">My personal and school projects.</p>
+    <ScrollableContainer wrapperClass="max-w-6xl" class="flex flex-wrap justify-center gap-4">
+        <ProjectCard name="Roblox Executor" year={2023} type="personal" image={RobloxHouse} />
+        <ProjectCard name="Websocket Chatroom" year={2024} type="personal" image={WSChat} />
+        <ProjectCard name="S.V. Unity" year={2025} type="school" image={SVUnity} />
+        <ProjectCard name="Museum Online" year={2024} type="school" image={MuseumOnline} />
+        <ProjectCard name="Drukkerij AGS" year={2025} type="school" image={DrukkerijAGS} />
+    </ScrollableContainer>
 </section>

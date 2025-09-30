@@ -1,66 +1,33 @@
 ---
 import SkillCard from "../SkillCard.astro";
-import ChevronDown from "@lucide/astro/icons/chevron-down";
+import ScrollableContainer from "../ScrollableContainer.astro";
 ---
 
 <section class="main-section px-8" id="skills">
-    <div
-        class="flex size-full max-w-3xl flex-col items-center justify-center gap-4">
-        <h2
-            class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
-            My Skills
-        </h2>
-        <p class="text-xl font-extralight text-zinc-300 italic">
-            The skills and tools that keep my projects running.
-        </p>
-        <div
-            class="flex max-h-1/2 w-full gap-x-8 gap-y-3 overflow-auto text-left not-sm:flex-col"
-            id="skills-container">
-            <ul class="flex-1 space-y-3">
-                <SkillCard title="Javascript" percent={100} />
-                <SkillCard title="Typescript" percent={90} />
-                <SkillCard title="HTML" percent={95} />
-                <SkillCard title="CSS" percent={95} />
-                <SkillCard title="Tailwind" percent={90} />
-                <SkillCard title="React" percent={90} />
-            </ul>
-            <ul class="flex-1 space-y-3">
-                <SkillCard title="NextJS" percent={85} />
-                <SkillCard title="C++" percent={65} />
-                <SkillCard title="Rust" percent={40} />
-                <SkillCard title="Lua" percent={100} />
-                <SkillCard title="PHP" percent={0} hidden />
-                <SkillCard title="Laravel" percent={0} hidden />
-            </ul>
-        </div>
-        <button
-            type="button"
-            class="hidden cursor-pointer [.scrollable]:block"
-            id="skills-scroll-btn">
-            <ChevronDown class="size-8 animate-bounce" />
-        </button>
-    </div>
+    <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
+        My Skills
+    </h2>
+    <p class="text-xl font-extralight text-zinc-300 italic">
+        The skills and tools that keep my projects running.
+    </p>
+    <ScrollableContainer
+        wrapperClass="w-full max-w-3xl"
+        class="flex items-stretch gap-x-8 gap-y-3 text-left not-sm:flex-col">
+        <ul class="flex-1 space-y-3">
+            <SkillCard title="Javascript" percent={100} />
+            <SkillCard title="Typescript" percent={90} />
+            <SkillCard title="HTML" percent={95} />
+            <SkillCard title="CSS" percent={95} />
+            <SkillCard title="Tailwind" percent={90} />
+            <SkillCard title="React" percent={90} />
+        </ul>
+        <ul class="flex-1 space-y-3">
+            <SkillCard title="NextJS" percent={85} />
+            <SkillCard title="C++" percent={65} />
+            <SkillCard title="Rust" percent={40} />
+            <SkillCard title="Lua" percent={100} />
+            <SkillCard title="PHP" percent={0} hidden />
+            <SkillCard title="Laravel" percent={0} hidden />
+        </ul>
+    </ScrollableContainer>
 </section>
-
-<script>
-    const skillsContainer = document.getElementById("skills-container")!;
-    const scrollBtn = document.getElementById("skills-scroll-btn")!;
-
-    const observer = new ResizeObserver((entries) => {
-        for (const entry of entries) {
-            const target = entry.target as HTMLElement;
-            const isScrollable = target.scrollHeight > target.offsetHeight;
-
-            scrollBtn.classList.toggle("scrollable", isScrollable);
-        }
-    });
-
-    observer.observe(skillsContainer);
-
-    scrollBtn.addEventListener("click", () => {
-        skillsContainer.scroll({
-            top: skillsContainer.scrollHeight,
-            behavior: "smooth",
-        });
-    });
-</script>
