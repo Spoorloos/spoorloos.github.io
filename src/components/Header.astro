@@ -59,4 +59,12 @@ import Binary from "@lucide/astro/icons/binary";
     navBtn.addEventListener("click", () => {
         document.documentElement.classList.toggle("nav-open");
     });
+
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+
+    for (const navLink of navLinks) {
+        navLink.addEventListener("click", () => {
+            document.documentElement.classList.toggle("nav-open", false);
+        });
+    }
 </script>
