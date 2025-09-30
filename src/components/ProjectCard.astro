@@ -18,7 +18,7 @@ const { name, year, schoolYear, type, image, href, class: className } = Astro.pr
 <a {href} target="_blank">
     <li
         class={twMerge(
-            "project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
+            "project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all ease-in-out duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
             className
         )}>
         <Image
