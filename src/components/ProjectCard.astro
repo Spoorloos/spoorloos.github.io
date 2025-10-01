@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { twMerge } from "tailwind-merge";
+import Github from "simple-icons-astro/Github";
+import ExternalLink from "@lucide/astro/icons/external-link";
 
 type Props = {
     name: string;
@@ -9,7 +11,8 @@ type Props = {
     type: "personal" | "school";
     groupProject?: boolean;
     image: ImageMetadata;
-    href: string;
+    githubLink: string;
+    liveLink?: string;
     class?: string;
 };
 
@@ -19,24 +22,25 @@ const {
     schoolYear,
     type,
     image,
-    href,
+    githubLink,
+    liveLink,
     groupProject = false,
     class: className,
 } = Astro.props;
 ---
 
-<a {href} target="_blank">
-    <li
-        class={twMerge(
-            "project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col items-start justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all ease-in-out duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
-            className
-        )}>
-        <Image
-            class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
-            src={image}
-            alt={name}
-        />
-        <div class="z-10 p-2">
+<li
+    class={twMerge(
+        "project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all ease-in-out duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
+        className
+    )}>
+    <Image
+        class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
+        src={image}
+        alt={name}
+    />
+    <div class="z-10 flex w-full items-start justify-between gap-5 p-2">
+        <div>
             <h3 class="text-xl font-bold text-shadow-black/50 text-shadow-xs">
                 {name}
             </h3>
@@ -44,12 +48,25 @@ const {
                 {year} | {schoolYear}
             </time>
         </div>
-        <p class="z-10 w-full bg-black/20 p-1 text-center">
-            <span class="font-bold capitalize">{type}</span>
-            {groupProject && <span class="font-light">- group project</span>}
-        </p>
-    </li>
-</a>
+        <div class="flex gap-2 opacity-50 group-hover:opacity-100">
+            <a href={githubLink} target="_blank">
+                <Github class="size-6" />
+            </a>
+            {
+                liveLink !== undefined && (
+                    <a href={liveLink} target="_blank">
+                        <ExternalLink class="size-6" />
+                    </a>
+                )
+            }
+        </div>
+    </div>
+
+    <p class="z-10 w-full p-1 text-center opacity-0 transition-opacity group-hover:opacity-100">
+        <span class="font-bold capitalize">{type}</span>
+        {groupProject && <span class="font-light">- group project</span>}
+    </p>
+</li>
 
 <script>
     const observer = new IntersectionObserver((entries) => {

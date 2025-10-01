@@ -10,9 +10,7 @@ import ScrollableContainer from "../ScrollableContainer.astro";
 ---
 
 <section class="main-section" id="projects">
-    <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
-        My Projects
-    </h2>
+    <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">My Projects</h2>
     <p class="text-xl font-extralight text-zinc-300 italic">My personal and school projects.</p>
     <ScrollableContainer wrapperClass="max-w-6xl" class="flex flex-wrap justify-center gap-4">
         <ProjectCard
@@ -21,7 +19,7 @@ import ScrollableContainer from "../ScrollableContainer.astro";
             schoolYear="1st year"
             type="personal"
             image={RobloxHouse}
-            href="https://github.com/Spoorloos/uwp_executor"
+            githubLink="https://github.com/Spoorloos/uwp_executor"
         />
         <ProjectCard
             name="Museum Online"
@@ -30,7 +28,8 @@ import ScrollableContainer from "../ScrollableContainer.astro";
             groupProject
             type="school"
             image={MuseumOnline}
-            href="https://github.com/Spoorloos/bo_museum_online"
+            githubLink="https://github.com/Spoorloos/bo_museum_online"
+            liveLink="https://school.spoorloos.xyz/bo/m2museum/"
             class="delay-100"
         />
         <ProjectCard
@@ -39,7 +38,7 @@ import ScrollableContainer from "../ScrollableContainer.astro";
             schoolYear="2nd year"
             type="personal"
             image={WSChat}
-            href="https://github.com/Spoorloos/ws_chat/"
+            githubLink="https://github.com/Spoorloos/ws_chat/"
             class="delay-200"
         />
         <ProjectCard
@@ -48,7 +47,8 @@ import ScrollableContainer from "../ScrollableContainer.astro";
             year={2025}
             type="school"
             image={SVUnity}
-            href="https://github.com/Spoorloos/bo_sv_unity"
+            githubLink="https://github.com/Spoorloos/bo_sv_unity"
+            liveLink="https://school.spoorloos.xyz/bo/m5svunity/"
             class="delay-300"
         />
         <ProjectCard
@@ -58,7 +58,8 @@ import ScrollableContainer from "../ScrollableContainer.astro";
             type="school"
             groupProject
             image={DrukkerijAGS}
-            href="https://github.com/Spoorloos/skill_drukkerij_ags"
+            githubLink="https://github.com/Spoorloos/skill_drukkerij_ags"
+            liveLink="https://skill-drukkerij-ags.vercel.app/"
             class="delay-400"
         />
         <ProjectCard
@@ -67,7 +68,8 @@ import ScrollableContainer from "../ScrollableContainer.astro";
             year={2025}
             type="school"
             image={Portfolio}
-            href="https://github.com/Spoorloos/spoorloos.github.io"
+            githubLink="https://github.com/Spoorloos/spoorloos.github.io"
+            liveLink="https://spoorloos.xyz/"
             class="delay-500"
         />
     </ScrollableContainer>
