@@ -31,11 +31,11 @@ const {
 
 <li
     class={twMerge(
-        "project-card group relative flex aspect-video h-40 translate-x-12 cursor-pointer flex-col justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all ease-in-out duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
+        "project-card group relative flex aspect-video h-40 translate-x-12 flex-col justify-between overflow-hidden rounded-sm text-left opacity-0 shadow-lg shadow-black/10 transition-all ease-in-out duration-1000 [.visible]:translate-x-0 [.visible]:opacity-100",
         className
     )}>
     <Image
-        class="absolute h-full w-full object-cover object-center opacity-40 transition-opacity group-hover:opacity-75"
+        class="has-pointer:opacity-40 has-pointer:group-hover:opacity-75 has-pointer:transition-opacity absolute h-full w-full object-cover object-center"
         src={image}
         alt={name}
     />
@@ -48,13 +48,20 @@ const {
                 {year} | {schoolYear}
             </time>
         </div>
-        <div class="flex gap-2 opacity-50 group-hover:opacity-100">
-            <a href={githubLink} target="_blank">
+        <div
+            class="has-pointer:opacity-0 has-pointer:group-hover:opacity-100 has-pointer:transition-opacity flex gap-2">
+            <a
+                class="has-pointer:text-white/50 has-pointer:transition-colors has-pointer:hover:text-white"
+                href={githubLink}
+                target="_blank">
                 <Github class="size-6" />
             </a>
             {
                 liveLink !== undefined && (
-                    <a href={liveLink} target="_blank">
+                    <a
+                        class="has-pointer:text-white/50 has-pointer:transition-colors has-pointer:hover:text-white"
+                        href={liveLink}
+                        target="_blank">
                         <ExternalLink class="size-6" />
                     </a>
                 )
