@@ -35,7 +35,7 @@ const {
         className
     )}>
     <Image
-        class="has-pointer:opacity-40 has-pointer:group-hover:opacity-75 has-pointer:transition-opacity absolute h-full w-full object-cover object-center"
+        class="absolute h-full w-full object-cover object-center pointer-fine:opacity-40 pointer-fine:transition-opacity pointer-fine:group-hover:opacity-75"
         src={image}
         alt={name}
     />
@@ -49,9 +49,9 @@ const {
             </time>
         </div>
         <div
-            class="has-pointer:opacity-0 has-pointer:group-hover:opacity-100 has-pointer:transition-opacity flex gap-2">
+            class="flex gap-2 pointer-fine:opacity-0 pointer-fine:transition-opacity pointer-fine:group-hover:opacity-100">
             <a
-                class="has-pointer:text-white/50 has-pointer:transition-colors has-pointer:hover:text-white"
+                class="pointer-fine:text-white/50 pointer-fine:transition-colors pointer-fine:hover:text-white"
                 href={githubLink}
                 target="_blank">
                 <Github class="size-6" />
@@ -59,7 +59,7 @@ const {
             {
                 liveLink !== undefined && (
                     <a
-                        class="has-pointer:text-white/50 has-pointer:transition-colors has-pointer:hover:text-white"
+                        class="pointer-fine:text-white/50 pointer-fine:transition-colors pointer-fine:hover:text-white"
                         href={liveLink}
                         target="_blank">
                         <ExternalLink class="size-6" />

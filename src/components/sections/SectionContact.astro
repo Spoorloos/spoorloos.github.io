@@ -1,6 +1,8 @@
 ---
 import Github from "simple-icons-astro/Github";
 import Telegram from "simple-icons-astro/Telegram";
+import Copy from "@lucide/astro/icons/copy";
+import Check from "@lucide/astro/icons/check";
 ---
 
 <section class="main-section" id="contact">
@@ -49,25 +51,30 @@ import Telegram from "simple-icons-astro/Telegram";
                 maxlength={500}
                 required/>
         </Fragment>
-        <div class="flex items-stretch justify-between gap-2">
-            <nav class="flex items-stretch gap-2">
-                <a
-                    class="button-secondary rounded-lg py-2"
-                    href="https://github.com/Spoorloos/"
-                    target="_blank">
-                    <Github />
-                </a>
-                <a class="button-secondary rounded-lg py-2" href="https://t.me/notspoorloos" target="_blank">
-                    <Telegram />
-                </a>
-            </nav>
+        <div class="flex flex-wrap justify-end gap-2">
+            <a class="button-secondary rounded-lg py-2" href="https://github.com/Spoorloos/" target="_blank">
+                <Github />
+            </a>
+            <a class="button-secondary rounded-lg py-2" href="https://t.me/notspoorloos" target="_blank">
+                <Telegram />
+            </a>
+            <div class="not-sm:-order-1 not-sm:w-full sm:flex-1">
+                <button
+                    class="group/emailbtn button-secondary flex w-32 justify-between gap-2 rounded-lg p-2 text-left transition-all not-sm:w-full hover:w-full"
+                    type="button"
+                    id="copy-email-btn">
+                    <span class="truncate">mick.negenman@icloud.com</span>
+                    <div class="group-hover/emailbtn:contents pointer-fine:hidden">
+                        <Copy class="block group-[[copied]]/emailbtn:hidden" />
+                        <Check class="hidden group-[[copied]]/emailbtn:block" />
+                    </div>
+                </button>
+            </div>
             <button class="button-primary form-sending rounded-lg px-3 py-2" type="submit">Send</button>
         </div>
-        <!-- Success message -->
         <p class="hidden text-green-400 group-[[success=true]]:block">
             <span class="font-medium">Success!</span> your message was sent successfully.
         </p>
-        <!-- Fail message -->
         <p class="hidden text-red-400 group-[[success=false]]:block">
             <span class="font-medium">Oh no!</span> we couldn't send your message.
         </p>
@@ -105,5 +112,13 @@ import Telegram from "simple-icons-astro/Telegram";
         } finally {
             form.classList.toggle("sending", false);
         }
+    });
+
+    const copyButton = document.querySelector<HTMLButtonElement>("#copy-email-btn")!;
+
+    copyButton.addEventListener("click", () => {
+        copyButton.toggleAttribute("copied", true);
+        navigator.clipboard.writeText("mick.negenman@icloud.com");
+        setTimeout(() => copyButton.toggleAttribute("copied", false), 2000);
     });
 </script>
