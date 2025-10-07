@@ -3,6 +3,7 @@ import Github from "simple-icons-astro/Github";
 import Telegram from "simple-icons-astro/Telegram";
 import Copy from "@lucide/astro/icons/copy";
 import Check from "@lucide/astro/icons/check";
+import Mail from "@lucide/astro/icons/mail";
 ---
 
 <section class="main-section" id="contact">
@@ -58,7 +59,7 @@ import Check from "@lucide/astro/icons/check";
             <a class="button-secondary rounded-lg py-2" href="https://t.me/notspoorloos" target="_blank">
                 <Telegram />
             </a>
-            <div class="not-sm:-order-1 not-sm:w-full sm:flex-1">
+            <!-- <div class="not-sm:-order-1 not-sm:w-full sm:flex-1">
                 <button
                     class="group/emailbtn button-secondary flex w-32 justify-between gap-2 rounded-lg p-2 text-left font-normal transition-all not-sm:w-full hover:w-full"
                     type="button"
@@ -69,7 +70,27 @@ import Check from "@lucide/astro/icons/check";
                         <Check class="hidden group-[[copied]]/emailbtn:block" />
                     </div>
                 </button>
-            </div>
+            </div> -->
+            <button
+                class="button-secondary group/emailbtn flex rounded-lg py-2 not-sm:-order-1 not-sm:w-full"
+                id="copy-email-btn"
+                type="button">
+                <div
+                    class="grid grid-cols-[1fr] opacity-100 transition-all duration-500 not-sm:hidden not-pointer-fine:hidden group-hover/emailbtn:grid-cols-[0fr] group-hover/emailbtn:opacity-0">
+                    <div class="overflow-hidden">
+                        <Mail />
+                    </div>
+                </div>
+                <div
+                    class="grid transition-all duration-500 not-sm:w-full group-hover/emailbtn:grid-cols-[1fr] group-hover/emailbtn:opacity-100 pointer-fine:sm:grid-cols-[0fr] pointer-fine:sm:opacity-0">
+                    <div class="flex items-center justify-between gap-2 overflow-hidden">
+                        <span>mick.negenman@icloud.com</span>
+                        <Copy class="block size-6 group-[[copied]]/emailbtn:hidden" />
+                        <Check class="hidden size-6 group-[[copied]]/emailbtn:block" />
+                    </div>
+                </div>
+            </button>
+
             <button class="button-primary form-sending rounded-lg px-3 py-2" type="submit">Send</button>
         </div>
         <p class="hidden text-green-400 group-[[success=true]]:block">
