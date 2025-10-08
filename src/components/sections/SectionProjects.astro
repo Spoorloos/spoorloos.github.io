@@ -1,17 +1,21 @@
 ---
-import ProjectCard from "../ProjectCard.astro";
-import RobloxHouse from "../../assets/roblox_house.webp";
-import WSChat from "../../assets/ws_chat.png";
-import SVUnity from "../../assets/sv_unity.png";
-import MuseumOnline from "../../assets/museum_online.png";
-import DrukkerijAGS from "../../assets/drukkerij_ags.png";
-import Portfolio from "../../assets/portfolio.png";
-import ScrollableContainer from "../ScrollableContainer.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import RobloxHouse from "@/assets/roblox_house.webp";
+import WSChat from "@/assets/ws_chat.png";
+import SVUnity from "@/assets/sv_unity.png";
+import MuseumOnline from "@/assets/museum_online.png";
+import DrukkerijAGS from "@/assets/drukkerij_ags.png";
+import Portfolio from "@/assets/portfolio.png";
+import ScrollableContainer from "@/components/ScrollableContainer.astro";
+
+const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
 <section class="main-section" id="projects">
-    <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">My Projects</h2>
-    <p class="text-xl font-extralight text-zinc-300 italic">My personal and school projects.</p>
+    <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
+        {lang.projects.title}
+    </h2>
+    <p class="text-xl font-extralight text-zinc-300 italic">{lang.projects.sub}</p>
     <ScrollableContainer wrapperClass="max-w-6xl" class="flex flex-wrap justify-center gap-4">
         <ProjectCard
             name="Roblox Executor"

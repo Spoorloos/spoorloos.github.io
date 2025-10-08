@@ -1,0 +1,55 @@
+{
+    "header": {
+        "title": "Mick's Portfolio",
+        "nav": {
+            "home": "Home",
+            "about": "About Me",
+            "skills": "Skills",
+            "projects": "Projects",
+            "contact": "Contact"
+        }
+    },
+    "main": {
+        "sub": "Hi, my name is Mick Negenman",
+        "i_am": "I am a",
+        "contact": "Get in contact",
+        "projects": "View projects",
+        "descriptions": [
+            "Full-Stack Developer",
+            "React & Next.js Enthusiast",
+            "Tailwind CSS Aficionado",
+            "Linux User",
+            "Low-Level Developer",
+            "Problem Solver",
+            "Clean Code Advocate"
+        ]
+    },
+    "about": {
+        "title": "About me",
+        "content": "I'm an 18-year-old software developer from the Netherlands, currently studying web development at a college in Amsterdam. In my free time I enjoy working on web projects, writing cheats for games and enhancing my programming skills. I've been very passionate about programming since I was around 12 and I'm always eager to learn new things!",
+        "contact": "Get in contact"
+    },
+    "skills": {
+        "title": "My Skills",
+        "sub": "The skills and tools that keep my projects running."
+    },
+    "projects": {
+        "title": "My Projects",
+        "sub": "My personal and school projects."
+    },
+    "contact": {
+        "title": "Get in contact",
+        "sub": "Reach out — I'd love to hear from you.",
+        "placeholders": {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "email": "Enter your email address",
+            "message": "Enter your message"
+        },
+        "send": "Send",
+        "errors": {
+            "success": "Success! Your message was sent.",
+            "fail": "Oh no! We couldn't send your message."
+        }
+    }
+}

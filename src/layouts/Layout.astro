@@ -1,12 +1,12 @@
 ---
-import "../styles/global.css";
+import "@/styles/global.css";
 import "@fontsource-variable/inter";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import "@fontsource-variable/noto-naskh-arabic";
+import Header from "@/components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en" class="snap-y snap-mandatory scroll-smooth">
+<html class="snap-y snap-mandatory scroll-smooth" lang={Astro.currentLocale}>
     <head>
         <title>Mick's Portfolio</title>
         <meta charset="UTF-8" />
@@ -17,11 +17,11 @@ import Footer from "../components/Footer.astro";
         <meta name="author" content="Mick Negenman" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     </head>
-    <body class="font-inter nav-open:overflow-hidden bg-black text-white">
+    <body
+        class={`${Astro.currentLocale === "fa" ? "font-noto-naskh" : "font-inter"} nav-open:overflow-hidden bg-black text-white`}>
         <canvas class="pointer-events-none fixed inset-0 -z-10" id="animation-canvas"></canvas>
         <Header />
         <slot />
-        <Footer />
     </body>
 </html>
 

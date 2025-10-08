@@ -1,31 +1,28 @@
+---
+const lang = await import(`@/locales/${Astro.currentLocale}.json`);
+---
+
 <section class="main-section animate-fade">
     <h2 class="text-2xl text-white/50 italic drop-shadow-xl drop-shadow-white/10">
-        Hi, my name is Mick Negenman
+        {lang.main.sub}
     </h2>
     <p class="text-6xl font-bold drop-shadow-xl drop-shadow-white/10">
-        I am a
+        {lang.main.i_am}
         <span
             class={String.raw`after:animate-fade-in-out bg-linear-to-b from-[#6fe3e1] to-[#5257e5] bg-clip-text text-transparent after:content-['\_']`}
-            id="description-text">
+            id="description-text"
+            data-descriptions={JSON.stringify(lang.main.descriptions)}>
         </span>
     </p>
     <div class="space-x-2">
-        <a class="button-primary inline-block" href="#contact">Get in contact</a>
-        <a class="button-secondary inline-block" href="#projects">View projects</a>
+        <a class="button-primary inline-block" href="#contact">{lang.main.contact}</a>
+        <a class="button-secondary inline-block" href="#projects">{lang.main.projects}</a>
     </div>
 </section>
 
 <script>
     const descText = document.querySelector<HTMLSpanElement>("#description-text")!;
-    const descriptions = [
-        "Full-Stack Developer",
-        "React & Next.js Enthusiast",
-        "Tailwind CSS Aficionado",
-        "Linux User",
-        "Low-Level Developer",
-        "Problem Solver",
-        "Clean Code Advocate",
-    ];
+    const descriptions = JSON.parse(descText.dataset.descriptions!);
 
     let descriptionIndex = 0;
     let letterIndex = 0;

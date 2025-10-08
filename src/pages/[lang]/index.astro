@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SectionMain from "@/components/sections/SectionMain.astro";
+import SectionAbout from "@/components/sections/SectionAbout.astro";
+import SectionSkills from "@/components/sections/SectionSkills.astro";
+import SectionProjects from "@/components/sections/SectionProjects.astro";
+import SectionContact from "@/components/sections/SectionContact.astro";
+import { getRelativeLocaleUrlList } from "astro:i18n";
+
+export function getStaticPaths() {
+    return getRelativeLocaleUrlList().map((lang) => {
+        return { params: { lang } };
+    });
+}
+---
+
+<Layout>
+    <main>
+        <SectionMain />
+        <SectionAbout />
+        <SectionSkills />
+        <SectionProjects />
+        <SectionContact />
+    </main>
+</Layout>

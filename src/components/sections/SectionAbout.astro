@@ -1,7 +1,9 @@
 ---
 import ArrowRight from "@lucide/astro/icons/arrow-right";
 import { Image } from "astro:assets";
-import pfp from "../../assets/pfp.jpg";
+import pfp from "@/assets/pfp.jpg";
+
+const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
 <section class="main-section px-8" id="about-me">
@@ -14,19 +16,17 @@ import pfp from "../../assets/pfp.jpg";
         <div class="flex flex-col gap-4 not-sm:items-center sm:text-left">
             <h2
                 class="-translate-x-12 text-4xl leading-none font-extrabold tracking-tight text-white opacity-0 transition-all delay-200 duration-1000 ease-out group-[.visible]:translate-x-0 group-[.visible]:opacity-100 md:text-5xl lg:text-6xl">
-                About me
+                {lang.about.title}
             </h2>
             <p
                 class="max-w-xl -translate-x-12 text-lg font-normal text-gray-400 opacity-0 transition-all delay-400 duration-1000 ease-out group-[.visible]:translate-x-0 group-[.visible]:opacity-100 lg:text-xl">
-                I'm an 18-year-old software developer from the Netherlands, currently studying web development
-                at a college in Amsterdam. In my free time I enjoy working on web projects, writing cheats for
-                games and enhancing my programming skills. I've been very passionate about programming since I
-                was around 12 and I'm always eager to learn new things!
+                {lang.about.content}
             </p>
             <a
                 href="#contact"
                 class="inline-flex w-fit -translate-x-12 items-center gap-2 text-lg text-[#5257e5] opacity-0 transition-all delay-600 duration-1000 ease-out group-[.visible]:translate-x-0 group-[.visible]:opacity-100 hover:underline">
-                Get in contact <ArrowRight class="inline" />
+                {lang.about.contact}
+                <ArrowRight class="inline" />
             </a>
         </div>
     </div>

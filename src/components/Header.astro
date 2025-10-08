@@ -1,12 +1,15 @@
 ---
 import Binary from "@lucide/astro/icons/binary";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
 <header
     class="not-sm:nav-open:bg-black not-nav-open:delay-400 fixed top-0 z-20 flex w-full items-center justify-between p-4 transition-colors duration-300">
-    <a class="animate-fade-down flex items-center gap-1" href="/">
+    <a class="animate-fade-down flex items-center gap-2" href={getRelativeLocaleUrl(Astro.currentLocale!)}>
         <Binary class="size-8" />
-        <h1 class="text-3xl font-bold sm:text-2xl">Mick's Portfolio</h1>
+        <h1 class="text-3xl font-bold sm:text-2xl">{lang.header.title}</h1>
     </a>
 
     <button class="animate-fade-down relative h-6 w-7 cursor-pointer sm:hidden" id="nav-btn">
@@ -24,33 +27,25 @@ import Binary from "@lucide/astro/icons/binary";
     <nav
         class="not-sm:nav-open:visible top-full right-0 left-0 flex not-sm:invisible not-sm:absolute not-sm:flex-col sm:gap-2">
         <a class="nav-link not-sm:nav-open:delay-0 sm:animate-delay-none not-sm:delay-400" href="#">
-            Home
+            {lang.header.nav.home}
         </a>
-        <a
-            class="nav-link not-sm:nav-open:delay-100 sm:animate-delay-100 not-sm:delay-300"
-            href="#about-me">
-            About Me
+        <a class="nav-link not-sm:nav-open:delay-100 sm:animate-delay-100 not-sm:delay-300" href="#about-me">
+            {lang.header.nav.about}
         </a>
-        <a
-            class="nav-link not-sm:nav-open:delay-200 sm:animate-delay-200 not-sm:delay-200"
-            href="#skills">
-            Skills
+        <a class="nav-link not-sm:nav-open:delay-200 sm:animate-delay-200 not-sm:delay-200" href="#skills">
+            {lang.header.nav.skills}
         </a>
-        <a
-            class="nav-link not-sm:nav-open:delay-300 sm:animate-delay-300 not-sm:delay-100"
-            href="#projects">
-            Projects
+        <a class="nav-link not-sm:nav-open:delay-300 sm:animate-delay-300 not-sm:delay-100" href="#projects">
+            {lang.header.nav.projects}
         </a>
-        <a
-            class="nav-link not-sm:nav-open:delay-400 sm:animate-delay-400 not-sm:delay-0"
-            href="#contact">
-            Contact
+        <a class="nav-link not-sm:nav-open:delay-400 sm:animate-delay-400 not-sm:delay-0" href="#contact">
+            {lang.header.nav.contact}
         </a>
     </nav>
 </header>
 
 <div
-    class="not-nav-open:opacity-0 not-nav-open:pointer-events-none fixed inset-0 z-10 backdrop-blur-xl transition-opacity duration-700 sm:hidden">
+    class="not-nav-open:opacity-0 not-nav-open:invisible not-nav-open:pointer-events-none fixed inset-0 z-10 backdrop-blur-xl transition-all duration-700 sm:hidden">
 </div>
 
 <script>

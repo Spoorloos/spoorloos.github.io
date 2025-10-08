@@ -1,0 +1,55 @@
+{
+    "header": {
+        "title": "Mick's Portfolio",
+        "nav": {
+            "home": "Home",
+            "about": "Over mij",
+            "skills": "Skills",
+            "projects": "Projecten",
+            "contact": "Contact"
+        }
+    },
+    "main": {
+        "sub": "Hoi, mijn naam is Mick Negenman",
+        "i_am": "Ik ben een",
+        "contact": "Neem contact op",
+        "projects": "Bekijk projecten",
+        "descriptions": [
+            "Full-Stack Developer",
+            "Fan Van React & Next.js",
+            "Fan Van Tailwind CSS",
+            "Linux Gebruiker",
+            "Low Level Developer",
+            "Probleem Oplosser",
+            "Liefhebber Van Nette Code"
+        ]
+    },
+    "about": {
+        "title": "Over mij",
+        "content": "Ik ben een 18-jarige software developer uit Nederland, en ik studeer momenteel web development bij het Mediacollege Amsterdam. In mijn vrije tijd werk ik graag aan webprojecten, schrijf ik cheats voor games en verbeter ik mijn programmeer skills. Ik ben al sinds ongeveer mijn 12e erg gepassioneerd over programmeren en ik ben altijd enthousiast om nieuwe dingen te leren!",
+        "contact": "Neem contact op"
+    },
+    "skills": {
+        "title": "Mijn Skills",
+        "sub": "De skills en tools die mijn projecten aandrijven."
+    },
+    "projects": {
+        "title": "Mijn Projecten",
+        "sub": "Mijn persoonlijke and school projecten."
+    },
+    "contact": {
+        "title": "Contact",
+        "sub": "Neem contact op — ik hoor graag van je.",
+        "placeholders": {
+            "first_name": "Uw voornaam",
+            "last_name": "Uw achternaam",
+            "email": "Uw e-mail address",
+            "message": "Voer uw bericht hier in"
+        },
+        "send": "Verstuur",
+        "errors": {
+            "success": "Success! Uw bericht is verstuurd.",
+            "fail": "Helaas, uw bericht kon niet worden verstuurd."
+        }
+    }
+}

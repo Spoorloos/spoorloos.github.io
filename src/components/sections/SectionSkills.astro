@@ -1,14 +1,16 @@
 ---
-import SkillCard from "../SkillCard.astro";
-import ScrollableContainer from "../ScrollableContainer.astro";
+import SkillCard from "@/components/SkillCard.astro";
+import ScrollableContainer from "@/components/ScrollableContainer.astro";
+
+const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
 <section class="main-section px-8" id="skills">
     <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
-        My Skills
+        {lang.skills.title}
     </h2>
     <p class="text-xl font-extralight text-zinc-300 italic">
-        The skills and tools that keep my projects running.
+        {lang.skills.sub}
     </p>
     <ScrollableContainer
         wrapperClass="w-full max-w-3xl"
