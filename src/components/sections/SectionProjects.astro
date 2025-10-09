@@ -16,66 +16,68 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         {lang.projects.title}
     </h2>
     <p class="text-xl font-extralight text-zinc-300 italic">{lang.projects.sub}</p>
-    <ScrollableContainer wrapperClass="max-w-6xl" class="flex flex-wrap justify-center gap-4">
-        <ProjectCard
-            name="Roblox Executor"
-            year={2023}
-            schoolYear="1st year"
-            type="personal"
-            image={RobloxHouse}
-            githubLink="https://github.com/Spoorloos/uwp_executor"
-            class="delay-0"
-        />
-        <ProjectCard
-            name="Museum Online"
-            schoolYear="1st year"
-            year={2023}
-            groupProject
-            type="school"
-            image={MuseumOnline}
-            githubLink="https://github.com/Spoorloos/bo_museum_online"
-            liveLink="https://36791.hosts2.ma-cloud.nl/bo/m2museum/"
-            class="delay-100"
-        />
-        <ProjectCard
-            name="Websocket Chatroom"
-            year={2024}
-            schoolYear="2nd year"
-            type="personal"
-            image={WSChat}
-            githubLink="https://github.com/Spoorloos/ws_chat/"
-            class="delay-200"
-        />
-        <ProjectCard
-            name="S.V. Unity"
-            schoolYear="2nd year"
-            year={2025}
-            type="school"
-            image={SVUnity}
-            githubLink="https://github.com/Spoorloos/bo_sv_unity"
-            liveLink="https://36791.hosts2.ma-cloud.nl/bo/m5svunity/"
-            class="delay-300"
-        />
-        <ProjectCard
-            name="Drukkerij AGS"
-            schoolYear="2nd year"
-            year={2025}
-            type="school"
-            groupProject
-            image={DrukkerijAGS}
-            githubLink="https://github.com/Spoorloos/skill_drukkerij_ags"
-            liveLink="https://skill-drukkerij-ags.vercel.app/"
-            class="delay-400"
-        />
-        <ProjectCard
-            name="Portfolio"
-            schoolYear="3rd year"
-            year={2025}
-            type="school"
-            image={Portfolio}
-            githubLink="https://github.com/Spoorloos/spoorloos.github.io"
-            liveLink="https://spoorloos.xyz/"
-            class="delay-500"
-        />
+    <ScrollableContainer class="max-h-96 w-full max-w-6xl">
+        <ul class="flex flex-wrap justify-center gap-4">
+            <ProjectCard
+                name="Roblox Executor"
+                year={2023}
+                schoolYear="1st year"
+                type="personal"
+                image={RobloxHouse}
+                githubLink="https://github.com/Spoorloos/uwp_executor"
+                class="delay-0"
+            />
+            <ProjectCard
+                name="Museum Online"
+                schoolYear="1st year"
+                year={2023}
+                groupProject
+                type="school"
+                image={MuseumOnline}
+                githubLink="https://github.com/Spoorloos/bo_museum_online"
+                liveLink="https://36791.hosts2.ma-cloud.nl/bo/m2museum/"
+                class="delay-100"
+            />
+            <ProjectCard
+                name="Websocket Chatroom"
+                year={2024}
+                schoolYear="2nd year"
+                type="personal"
+                image={WSChat}
+                githubLink="https://github.com/Spoorloos/ws_chat/"
+                class="delay-200"
+            />
+            <ProjectCard
+                name="S.V. Unity"
+                schoolYear="2nd year"
+                year={2025}
+                type="school"
+                image={SVUnity}
+                githubLink="https://github.com/Spoorloos/bo_sv_unity"
+                liveLink="https://36791.hosts2.ma-cloud.nl/bo/m5svunity/"
+                class="delay-300"
+            />
+            <ProjectCard
+                name="Drukkerij AGS"
+                schoolYear="2nd year"
+                year={2025}
+                type="school"
+                groupProject
+                image={DrukkerijAGS}
+                githubLink="https://github.com/Spoorloos/skill_drukkerij_ags"
+                liveLink="https://skill-drukkerij-ags.vercel.app/"
+                class="delay-400"
+            />
+            <ProjectCard
+                name="Portfolio"
+                schoolYear="3rd year"
+                year={2025}
+                type="school"
+                image={Portfolio}
+                githubLink="https://github.com/Spoorloos/spoorloos.github.io"
+                liveLink="https://spoorloos.xyz/"
+                class="delay-500"
+            />
+        </ul>
     </ScrollableContainer>
 </section>

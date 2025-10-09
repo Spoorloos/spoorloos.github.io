@@ -12,24 +12,24 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
     <p class="text-xl font-extralight text-zinc-300 italic">
         {lang.skills.sub}
     </p>
-    <ScrollableContainer
-        wrapperClass="w-full max-w-3xl"
-        class="flex items-stretch gap-x-8 gap-y-3 text-left not-sm:flex-col">
-        <ul class="flex-1 space-y-3">
-            <SkillCard title="Javascript" percent={100} />
-            <SkillCard title="Typescript" percent={90} />
-            <SkillCard title="HTML" percent={95} />
-            <SkillCard title="CSS" percent={95} />
-            <SkillCard title="Tailwind" percent={90} />
-            <SkillCard title="React" percent={90} />
-        </ul>
-        <ul class="flex-1 space-y-3">
-            <SkillCard title="NextJS" percent={85} />
-            <SkillCard title="C++" percent={65} />
-            <SkillCard title="Rust" percent={40} />
-            <SkillCard title="Lua" percent={100} />
-            <SkillCard title="PHP" percent={0} hidden />
-            <SkillCard title="Laravel" percent={0} hidden />
-        </ul>
+    <ScrollableContainer class="max-h-96 w-full max-w-3xl">
+        <div class="flex items-stretch gap-x-8 gap-y-3 text-left not-sm:flex-col">
+            <ul class="flex-1 space-y-3">
+                <SkillCard title="Javascript" percent={100} />
+                <SkillCard title="Typescript" percent={90} />
+                <SkillCard title="HTML" percent={95} />
+                <SkillCard title="CSS" percent={95} />
+                <SkillCard title="Tailwind" percent={90} />
+                <SkillCard title="React" percent={90} />
+            </ul>
+            <ul class="flex-1 space-y-3">
+                <SkillCard title="NextJS" percent={85} />
+                <SkillCard title="C++" percent={65} />
+                <SkillCard title="Rust" percent={40} />
+                <SkillCard title="Lua" percent={100} />
+                <SkillCard title="PHP" percent={0} hidden />
+                <SkillCard title="Laravel" percent={0} hidden />
+            </ul>
+        </div>
     </ScrollableContainer>
 </section>

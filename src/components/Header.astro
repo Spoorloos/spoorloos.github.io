@@ -58,7 +58,7 @@ const localeNames = await Promise.all(
                 <Languages class="not-sm:hidden" />
             </button>
             <div
-                class="absolute top-full mt-1 grid grid-rows-[0fr] transition-all ease-out group-[[langs-open]]:grid-rows-[1fr] not-sm:ltr:left-0 sm:ltr:right-0 sm:ltr:text-right not-sm:rtl:right-0 sm:rtl:left-0 sm:rtl:text-left">
+                class="absolute top-full mt-1 grid grid-rows-[0fr] transition-all ease-out group-[.langs-open]:grid-rows-[1fr] not-sm:ltr:left-0 sm:ltr:right-0 sm:ltr:text-right not-sm:rtl:right-0 sm:rtl:left-0 sm:rtl:text-left">
                 <div class="w-fit overflow-y-hidden">
                     <ul
                         class="not-sm:not-nav-open:opacity-0 rounded-lg border border-white/15 bg-white/10 p-2.5 text-white/80 drop-shadow-lg drop-shadow-white/10 transition-opacity duration-500">
@@ -92,6 +92,6 @@ const localeNames = await Promise.all(
     const langsWrapper = document.querySelector<HTMLDivElement>("#langs-wrapper")!;
 
     langsBtn.addEventListener("click", () => {
-        langsWrapper.toggleAttribute("langs-open");
+        langsWrapper.classList.toggle("langs-open");
     });
 </script>

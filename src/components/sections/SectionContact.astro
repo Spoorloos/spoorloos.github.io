@@ -72,8 +72,8 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
                     class="grid transition-all duration-500 not-sm:w-full group-hover/emailbtn:grid-cols-[1fr] group-hover/emailbtn:opacity-100 pointer-fine:sm:grid-cols-[0fr] pointer-fine:sm:opacity-0">
                     <span class="flex items-center justify-between gap-2 overflow-hidden">
                         mick.negenman@icloud.com
-                        <Copy class="block size-6 group-[[copied]]/emailbtn:hidden" />
-                        <Check class="hidden size-6 group-[[copied]]/emailbtn:block" />
+                        <Copy class="block size-6 group-[.copied]/emailbtn:hidden" />
+                        <Check class="hidden size-6 group-[.copied]/emailbtn:block" />
                     </span>
                 </span>
             </button>
@@ -128,8 +128,8 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
     const copyButton = document.querySelector<HTMLButtonElement>("#copy-email-btn")!;
 
     copyButton.addEventListener("click", () => {
-        copyButton.toggleAttribute("copied", true);
+        copyButton.classList.toggle("copied", true);
         navigator.clipboard.writeText("mick.negenman@icloud.com");
-        setTimeout(() => copyButton.toggleAttribute("copied", false), 2000);
+        setTimeout(() => copyButton.classList.toggle("copied", false), 2000);
     });
 </script>

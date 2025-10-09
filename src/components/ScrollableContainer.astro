@@ -4,18 +4,19 @@ import { twMerge } from "tailwind-merge";
 
 type Props = {
     class?: string;
-    wrapperClass?: string;
 };
 
-const { class: className, wrapperClass } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<div class={twMerge("scrollable-container flex flex-col items-center gap-4", wrapperClass)}>
-    <ul class={twMerge("scrollable-content overflow-x-hidden overflow-y-auto w-full max-h-96", className)}>
+<div class={twMerge("scrollable-container flex flex-col items-center gap-4", className)}>
+    <div class="scrollable-content w-full overflow-x-hidden overflow-y-auto">
         <slot />
-    </ul>
-    <button type="button" class="scroll-btn hidden cursor-pointer [.scrollable]:block">
-        <ChevronDown class="size-8 animate-bounce" />
+    </div>
+    <button
+        type="button"
+        class="scroll-btn hidden cursor-pointer transition-transform [.reached-end]:rotate-180 [.scrollable]:block">
+        <ChevronDown class="size-8 animate-pulse" />
     </button>
 </div>
 
@@ -27,13 +28,21 @@ const { class: className, wrapperClass } = Astro.props;
         const observer = new ResizeObserver(() => {
             button.classList.toggle("scrollable", content.scrollHeight > content.offsetHeight);
         });
+
         observer.observe(container);
+
+        let reachedEnd = false;
 
         button.addEventListener("click", () => {
             content.scroll({
-                top: content.scrollHeight,
+                top: reachedEnd ? 0 : content.scrollHeight,
                 behavior: "smooth",
             });
+        });
+
+        content.addEventListener("scroll", () => {
+            reachedEnd = content.clientHeight + content.scrollTop >= content.scrollHeight;
+            button.classList.toggle("reached-end", reachedEnd);
         });
     }
 </script>
