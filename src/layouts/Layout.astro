@@ -6,7 +6,10 @@ import Header from "@/components/Header.astro";
 ---
 
 <!doctype html>
-<html class="snap-y snap-mandatory scroll-smooth" lang={Astro.currentLocale}>
+<html
+    class="snap-y snap-mandatory scroll-smooth"
+    lang={Astro.currentLocale}
+    dir={Astro.currentLocale === "fa" ? "rtl" : "ltr"}>
     <head>
         <title>Mick's Portfolio</title>
         <meta charset="UTF-8" />

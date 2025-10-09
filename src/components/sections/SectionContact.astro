@@ -77,7 +77,9 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
                     </div>
                 </div>
             </button>
-            <button class="button-primary form-sending ml-auto rounded-lg px-3 py-2" type="submit">
+            <button
+                class="button-primary form-sending rounded-lg px-3 py-2 ltr:ml-auto rtl:mr-auto"
+                type="submit">
                 {lang.contact.send}
             </button>
         </div>

@@ -7,7 +7,7 @@ import fs from "node:fs";
 
 const srcFolder = path.resolve(import.meta.dirname, "./src/");
 const localesFolder = path.resolve(srcFolder, "./locales/");
-const localeNames = fs.readdirSync(localesFolder).map((lang) => path.parse(lang).name);
+const locales = fs.readdirSync(localesFolder).map((lang) => path.parse(lang).name);
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +22,7 @@ export default defineConfig({
     },
     integrations: [sitemap()],
     i18n: {
-        locales: localeNames,
+        locales,
         defaultLocale: "en",
         routing: {
             prefixDefaultLocale: false,

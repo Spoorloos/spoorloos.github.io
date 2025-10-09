@@ -8,8 +8,8 @@ import SectionContact from "@/components/sections/SectionContact.astro";
 import { getRelativeLocaleUrlList } from "astro:i18n";
 
 export function getStaticPaths() {
-    return getRelativeLocaleUrlList().map((lang) => {
-        return { params: { lang } };
+    return getRelativeLocaleUrlList().map((locale) => {
+        return { params: { locale } };
     });
 }
 ---

@@ -1,55 +1,57 @@
 {
+    "name": "فارسی",
     "header": {
-        "title": "پورتفولیو میک",
+        "title": "پورتفولیوی میک",
         "nav": {
             "home": "خانه",
-            "about": "در مورد من",
-            "skills": "مهارت ها",
-            "projects": "پروژه ها",
-            "contact": "تماس"
+            "about": "درمورد من",
+            "skills": "مهارت‌ها",
+            "projects": "پروژه‌ها",
+            "contact": "تماس",
+            "language": "زبان"
         }
     },
     "main": {
-        "sub": "Hi, my name is Mick Negenman",
-        "i_am": "I am a",
-        "contact": "Get in contact",
-        "projects": "View projects",
+        "sub": "سلام، من میک نیخنمان هستم",
+        "i_am": "من یک",
+        "contact": "تماس با من",
+        "projects": "دیدن پروژه‌ها",
         "descriptions": [
-            "Full-Stack Developer",
-            "React & Next.js Enthusiast",
-            "Tailwind CSS Aficionado",
-            "Linux User",
-            "Low-Level Developer",
-            "Problem Solver",
-            "Clean Code Advocate"
+            "فول استک دولوپر هستم",
+            "علاقه‌مند React و Next.js هستم",
+            "طرفدار Tailwind CSS هستم",
+            "کاربر Linux هستم",
+            "برنامه‌نویس سیستم هستم",
+            "مشکل‌گشا هستم",
+            "حامی کد تمیز هستم"
         ]
     },
     "about": {
-        "title": "About me",
-        "content": "I'm an 18-year-old software developer from the Netherlands, currently studying web development at a college in Amsterdam. In my free time I enjoy working on web projects, writing cheats for games and enhancing my programming skills. I've been very passionate about programming since I was around 12 and I'm always eager to learn new things!",
-        "contact": "Get in contact"
+        "title": "درمورد من",
+        "content": "من یک برنامه‌نویس ۱۸ ساله از هلند هستم، و در حال حاضر توی یکی از کالج‌های آمستردام توسعه‌ وب میخونم. توی وقت آزادم لذت میبرم از کار  روی پروژه‌های وب، نوشتن چیت برای بازی‌ها و بهتر کردن مهارت‌های برنامه‌نویسیم.‌ از حدود ۱۲ سالگی به برنامه‌نویسی علاقه‌مند شدم و‌ همیشه مشتاق یاد گرفتن چیز‌های جدید هستم!",
+        "contact": "با من تماس بگیرید"
     },
     "skills": {
-        "title": "My Skills",
-        "sub": "The skills and tools that keep my projects running."
+        "title": "مهارت‌هام",
+        "sub": "مهارت‌ها و ابزاری که پروژه‌هام رو فعال نگه میدارن."
     },
     "projects": {
-        "title": "My Projects",
-        "sub": "My personal and school projects."
+        "title": "پروژه‌هام",
+        "sub": "پروژه‌های شخصی و درسی من"
     },
     "contact": {
-        "title": "Get in contact",
-        "sub": "Reach out — I'd love to hear from you.",
+        "title": "با من تماس بگیرید",
+        "sub": "با من در تماس باشید — خوش‌حال میشم از شما بشنوم.",
         "placeholders": {
-            "first_name": "First name",
-            "last_name": "Last name",
-            "email": "Enter your email address",
-            "message": "Enter your message"
+            "first_name": "اسم",
+            "last_name": "فامیلی",
+            "email": "ایمیل",
+            "message": "پیام"
         },
-        "send": "Send",
+        "send": "تمام",
         "errors": {
-            "success": "Success! Your message was sent.",
-            "fail": "Oh no! We couldn't send your message."
+            "success": "انجام شد! پیامتون با موفقیت فرستاده شد.",
+            "fail": "ای وای! پیامتون فرستاده نشد."
         }
     }
 }

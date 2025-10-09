@@ -1,12 +1,21 @@
 ---
 import Binary from "@lucide/astro/icons/binary";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import Languages from "@lucide/astro/icons/languages";
 
+// @ts-expect-error
+const locales = __ASTRO_INTERNAL_I18N_CONFIG__.i18n.locales as string[];
 const lang = await import(`@/locales/${Astro.currentLocale}.json`);
+
+const localeNames = await Promise.all(
+    locales.map(async (locale) => {
+        return [locale, (await import(`@/locales/${locale}.json`)).name];
+    })
+);
 ---
 
 <header
-    class="not-sm:nav-open:bg-black not-nav-open:delay-400 fixed top-0 z-20 flex w-full items-center justify-between p-4 transition-colors duration-300">
+    class="not-sm:nav-open:bg-black not-nav-open:delay-500 fixed top-0 z-20 flex w-full items-center justify-between p-4 transition-colors duration-300">
     <a class="animate-fade-down flex items-center gap-2" href={getRelativeLocaleUrl(Astro.currentLocale!)}>
         <Binary class="size-8" />
         <h1 class="text-3xl font-bold sm:text-2xl">{lang.header.title}</h1>
@@ -25,22 +34,46 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
     </button>
 
     <nav
-        class="not-sm:nav-open:visible top-full right-0 left-0 flex not-sm:invisible not-sm:absolute not-sm:flex-col sm:gap-2">
-        <a class="nav-link not-sm:nav-open:delay-0 sm:animate-delay-none not-sm:delay-400" href="#">
+        class="not-sm:nav-open:visible top-full right-0 left-0 flex not-sm:invisible not-sm:absolute not-sm:flex-col sm:items-center sm:gap-2">
+        <a class="nav-link not-sm:nav-open:delay-0 sm:animate-delay-none not-sm:delay-500" href="#">
             {lang.header.nav.home}
         </a>
-        <a class="nav-link not-sm:nav-open:delay-100 sm:animate-delay-100 not-sm:delay-300" href="#about-me">
+        <a class="nav-link not-sm:nav-open:delay-100 sm:animate-delay-100 not-sm:delay-400" href="#about-me">
             {lang.header.nav.about}
         </a>
-        <a class="nav-link not-sm:nav-open:delay-200 sm:animate-delay-200 not-sm:delay-200" href="#skills">
+        <a class="nav-link not-sm:nav-open:delay-200 sm:animate-delay-200 not-sm:delay-300" href="#skills">
             {lang.header.nav.skills}
         </a>
-        <a class="nav-link not-sm:nav-open:delay-300 sm:animate-delay-300 not-sm:delay-100" href="#projects">
+        <a class="nav-link not-sm:nav-open:delay-300 sm:animate-delay-300 not-sm:delay-200" href="#projects">
             {lang.header.nav.projects}
         </a>
-        <a class="nav-link not-sm:nav-open:delay-400 sm:animate-delay-400 not-sm:delay-0" href="#contact">
+        <a class="nav-link not-sm:nav-open:delay-400 sm:animate-delay-400 not-sm:delay-100" href="#contact">
             {lang.header.nav.contact}
         </a>
+        <div class="group relative" id="langs-wrapper">
+            <button
+                class="nav-link not-sm:nav-open:delay-500 sm:animate-delay-500 flex w-full cursor-pointer items-center gap-2 not-sm:delay-0"
+                id="langs-btn">
+                <span class="sm:hidden">{lang.header.nav.language}</span>
+                <Languages class="not-sm:hidden" />
+            </button>
+            <div
+                class="absolute top-full mt-1 grid grid-rows-[0fr] transition-all ease-out group-[[langs-open]]:grid-rows-[1fr] not-sm:ltr:left-0 sm:ltr:right-0 sm:ltr:text-right not-sm:rtl:right-0 sm:rtl:left-0 sm:rtl:text-left">
+                <div class="w-fit overflow-y-hidden">
+                    <ul
+                        class="not-sm:not-nav-open:opacity-0 rounded-lg border border-white/15 bg-white/10 p-2.5 text-white/80 drop-shadow-lg drop-shadow-white/10 transition-opacity duration-500">
+                        {
+                            localeNames.map(([locale, name]) => (
+                                <li
+                                    class={`${locale === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50"} text-lg transition-colors text-shadow-black/20 text-shadow-sm not-sm:text-xl hover:text-white`}>
+                                    <a href={getRelativeLocaleUrl(locale)}>{name}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
     </nav>
 </header>
 
@@ -55,11 +88,10 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         document.documentElement.classList.toggle("nav-open");
     });
 
-    const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+    const langsBtn = document.querySelector<HTMLButtonElement>("#langs-btn")!;
+    const langsWrapper = document.querySelector<HTMLDivElement>("#langs-wrapper")!;
 
-    for (const navLink of navLinks) {
-        navLink.addEventListener("click", () => {
-            document.documentElement.classList.toggle("nav-open", false);
-        });
-    }
+    langsBtn.addEventListener("click", () => {
+        langsWrapper.toggleAttribute("langs-open");
+    });
 </script>
