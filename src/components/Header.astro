@@ -57,22 +57,19 @@ const localeNames = await Promise.all(
                 <span class="sm:hidden">{lang.header.nav.language}</span>
                 <Languages class="not-sm:hidden" />
             </button>
-            <div
-                class="absolute top-full mt-1 grid grid-rows-[0fr] transition-all ease-out group-[.langs-open]:grid-rows-[1fr] not-sm:ltr:left-0 sm:ltr:right-0 sm:ltr:text-right not-sm:rtl:right-0 sm:rtl:left-0 sm:rtl:text-left">
-                <div class="w-fit overflow-y-hidden">
-                    <ul
-                        class="not-sm:not-nav-open:opacity-0 rounded-lg border border-white/15 bg-white/10 p-2.5 text-white/80 drop-shadow-lg drop-shadow-white/10 transition-opacity duration-500">
-                        {
-                            localeNames.map(([locale, name]) => (
-                                <li
-                                    class={`${locale === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50"} text-lg transition-colors text-shadow-black/20 text-shadow-sm not-sm:text-xl hover:text-white`}>
-                                    <a href={getRelativeLocaleUrl(locale)}>{name}</a>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
+            <ul
+                class="invisible absolute top-full mt-1 origin-top scale-y-0 rounded-lg border border-white/15 bg-white/10 p-2.5 text-white/80 opacity-0 drop-shadow-lg drop-shadow-white/10 transition-all ease-in not-sm:start-0 not-sm:text-start group-[.langs-open]:visible group-[.langs-open]:scale-y-100 group-[.langs-open]:opacity-100 sm:end-0 sm:text-end">
+                {
+                    localeNames.map(([locale, name]) => (
+                        <li
+                            class={`${locale === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50"} text-lg transition-colors text-shadow-black/20 text-shadow-sm not-sm:text-xl hover:text-white`}>
+                            <a class="block" href={getRelativeLocaleUrl(locale)}>
+                                {name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
         </div>
     </nav>
 </header>
@@ -83,13 +80,13 @@ const localeNames = await Promise.all(
 
 <script>
     const navBtn = document.querySelector<HTMLButtonElement>("#nav-btn")!;
+    const langsBtn = document.querySelector<HTMLButtonElement>("#langs-btn")!;
+    const langsWrapper = document.querySelector<HTMLDivElement>("#langs-wrapper")!;
 
     navBtn.addEventListener("click", () => {
         document.documentElement.classList.toggle("nav-open");
+        langsWrapper.classList.toggle("langs-open", false);
     });
-
-    const langsBtn = document.querySelector<HTMLButtonElement>("#langs-btn")!;
-    const langsWrapper = document.querySelector<HTMLDivElement>("#langs-wrapper")!;
 
     langsBtn.addEventListener("click", () => {
         langsWrapper.classList.toggle("langs-open");
