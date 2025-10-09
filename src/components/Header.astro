@@ -58,11 +58,11 @@ const localeNames = await Promise.all(
                 <Languages class="not-sm:hidden" />
             </button>
             <ul
-                class="invisible absolute top-full mt-1 origin-top scale-y-0 rounded-lg border border-white/15 bg-white/10 p-2.5 text-white/80 opacity-0 drop-shadow-lg drop-shadow-white/10 transition-all ease-in not-sm:start-0 not-sm:text-start group-[.langs-open]:visible group-[.langs-open]:scale-y-100 group-[.langs-open]:opacity-100 sm:end-0 sm:text-end">
+                class="invisible absolute top-full mt-1 origin-top scale-y-0 space-y-0.5 rounded-lg border border-white/15 bg-white/10 p-2 text-white/80 opacity-0 drop-shadow-lg drop-shadow-white/10 transition-all ease-in not-sm:start-0 not-sm:text-start group-[.langs-open]:visible group-[.langs-open]:scale-y-100 group-[.langs-open]:opacity-100 sm:end-0 sm:text-end">
                 {
                     localeNames.map(([locale, name]) => (
                         <li
-                            class={`${locale === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50"} text-lg transition-colors text-shadow-black/20 text-shadow-sm not-sm:text-xl hover:text-white`}>
+                            class={`${locale === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50 transition-colors hover:text-white"} text-lg text-shadow-black/20 text-shadow-sm not-sm:text-xl`}>
                             <a class="block" href={getRelativeLocaleUrl(locale)}>
                                 {name}
                             </a>
