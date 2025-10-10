@@ -13,7 +13,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         {lang.skills.sub}
     </p>
     <ScrollableContainer class="max-h-96 w-full max-w-3xl">
-        <div class="flex items-stretch gap-x-8 gap-y-3 text-left not-sm:flex-col">
+        <div class="flex items-stretch gap-x-8 gap-y-3 text-start not-sm:flex-col">
             <ul class="flex-1 space-y-3">
                 <SkillCard title="Javascript" percent={100} />
                 <SkillCard title="Typescript" percent={90} />
