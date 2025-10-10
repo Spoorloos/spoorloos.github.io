@@ -3,21 +3,23 @@ import "@/styles/global.css";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/noto-naskh-arabic";
 import Header from "@/components/Header.astro";
+
+const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
 <!doctype html>
 <html
     class="snap-y snap-mandatory scroll-smooth"
     lang={Astro.currentLocale}
-    dir={Astro.currentLocale === "fa" ? "rtl" : "ltr"}>
+    dir={Astro.currentLocale === "fa" ? "rtl" : undefined}>
+    <!-- I love my girlfriend -->
     <head>
-        <title>Mick's Portfolio</title>
+        <title>{lang.head.title}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="description" content="My simple portfolio website" />
-        <meta name="keywords" content="portfolio, developer" />
-        <meta name="author" content="Mick Negenman" />
+        <meta name="description" content={lang.head.description} />
+        <meta name="author" content={lang.head.author} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     </head>
     <body

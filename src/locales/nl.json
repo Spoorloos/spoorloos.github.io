@@ -1,5 +1,10 @@
 {
     "name": "Nederlands",
+    "head": {
+        "title": "Mick's Portfolio",
+        "description": "Mijn simpele portfolio website",
+        "author": "Mick Negenman"
+    },
     "header": {
         "title": "Mick's Portfolio",
         "nav": {
