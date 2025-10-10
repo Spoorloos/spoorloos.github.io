@@ -40,9 +40,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         if (letterIndex > currentDesc.length) {
             deleteText = true;
             finishedWord = true;
-        }
-
-        if (letterIndex === 0) {
+        } else if (letterIndex === 0) {
             deleteText = false;
             descIndex = (descIndex + 1) % descriptions.length;
         }
