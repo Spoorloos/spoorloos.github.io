@@ -22,31 +22,36 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 
 <script>
     const descText = document.querySelector<HTMLSpanElement>("#description-text")!;
-    const descriptions = JSON.parse(descText.dataset.descriptions!);
+    const descriptions: string[] = JSON.parse(descText.dataset.descriptions!);
 
-    let descriptionIndex = 0;
+    let descIndex = 0;
     let letterIndex = 0;
-    let removeWord = false;
+    let deleteText = false;
 
     function showNextLetter() {
-        const currentDescription = descriptions[descriptionIndex];
+        const currentDesc = descriptions[descIndex];
 
-        descText.innerText = currentDescription.slice(0, letterIndex);
+        descText.innerText = currentDesc.slice(0, letterIndex);
 
-        letterIndex = removeWord ? letterIndex - 1 : letterIndex + 1;
+        letterIndex += deleteText ? -1 : 1;
 
-        if (removeWord && letterIndex === 0) {
-            removeWord = false;
-            descriptionIndex = (descriptionIndex + 1) % descriptions.length;
+        let finishedWord = false;
+
+        if (letterIndex > currentDesc.length) {
+            deleteText = true;
+            finishedWord = true;
         }
 
-        if (letterIndex > currentDescription.length) {
-            removeWord = true;
-            setTimeout(showNextLetter, 1000);
-        } else {
-            setTimeout(showNextLetter, removeWord ? 50 : Math.random() * 100);
+        if (letterIndex === 0) {
+            deleteText = false;
+            descIndex = (descIndex + 1) % descriptions.length;
         }
+
+        setTimeout(
+            () => requestAnimationFrame(showNextLetter),
+            finishedWord ? 2000 : deleteText ? 50 : Math.random() * 100
+        );
     }
 
-    showNextLetter();
+    requestAnimationFrame(showNextLetter);
 </script>
