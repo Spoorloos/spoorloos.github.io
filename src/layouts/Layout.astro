@@ -8,10 +8,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
 <!doctype html>
-<html
-    class="snap-y snap-mandatory scroll-smooth"
-    lang={Astro.currentLocale}
-    dir={Astro.currentLocale === "fa" ? "rtl" : undefined}>
+<html class="snap-y snap-mandatory scroll-smooth" lang={Astro.currentLocale} dir="auto">
     <!-- I love my girlfriend -->
     <head>
         <title>{lang.head.title}</title>
