@@ -21,6 +21,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         <meta name="description" content={lang.head.description} />
         <meta name="author" content={lang.head.author} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body
         class={`${Astro.currentLocale === "fa" ? "font-noto-naskh" : "font-inter"} nav-open:overflow-hidden bg-black text-white`}>
