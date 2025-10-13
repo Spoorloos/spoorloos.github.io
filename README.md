@@ -28,8 +28,8 @@ git clone https://github.com/Spoorloos/spoorloos.github.io.git
 cd spoorloos.github.io
 
 # Install dependencies
-pnpm install
+bun install
 
 # Run the development server
-pnpm run dev
+bun run dev
 ```
