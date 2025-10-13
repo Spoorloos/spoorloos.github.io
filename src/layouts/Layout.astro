@@ -13,7 +13,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
     <head>
         <title>{lang.head.title}</title>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={lang.head.description} />
         <meta name="author" content={lang.head.author} />
