@@ -9,22 +9,22 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 <section class="main-section px-8" id="about-me">
     <div class="group flex items-center gap-8 not-sm:flex-col sm:gap-16" id="about-me-content">
         <Image
-            class="size-48 rounded-full opacity-0 shadow-2xl shadow-gray-500/50 transition-opacity delay-200 duration-1000 will-change-[opacity] group-[.visible]:opacity-100 sm:size-64"
+            class="size-48 rounded-full opacity-0 shadow-2xl shadow-gray-500/50 transition-opacity delay-200 duration-1000 will-change-[opacity] group-[.visible]:opacity-100 group-[:not(.visible)]:transition-none sm:size-64"
             src={pfp}
             alt="Me"
         />
         <div class="flex flex-col gap-4 text-center not-sm:items-center sm:text-start">
             <h2
-                class="-translate-x-12 text-4xl leading-none font-extrabold tracking-tight text-white opacity-0 transition-[opacity,translate] delay-200 duration-1000 ease-out will-change-[opacity,translate] group-[.visible]:translate-x-0 group-[.visible]:opacity-100 md:text-5xl lg:text-6xl rtl:translate-x-12">
+                class="-translate-x-12 text-4xl leading-none font-extrabold tracking-tight text-white opacity-0 transition-[opacity,translate] delay-200 duration-1000 ease-out will-change-[opacity,translate] group-[.visible]:translate-x-0 group-[.visible]:opacity-100 group-[:not(.visible)]:transition-none md:text-5xl lg:text-6xl rtl:translate-x-12">
                 {lang.about.title}
             </h2>
             <p
-                class="max-w-xl -translate-x-12 text-lg font-normal text-gray-400 opacity-0 transition-[opacity,translate] delay-400 duration-1000 ease-out will-change-[opacity,translate] group-[.visible]:translate-x-0 group-[.visible]:opacity-100 lg:text-xl rtl:translate-x-12">
+                class="max-w-xl -translate-x-12 text-lg font-normal text-gray-400 opacity-0 transition-[opacity,translate] delay-400 duration-1000 ease-out will-change-[opacity,translate] group-[.visible]:translate-x-0 group-[.visible]:opacity-100 group-[:not(.visible)]:transition-none lg:text-xl rtl:translate-x-12">
                 {lang.about.content}
             </p>
             <a
                 href="#contact"
-                class="inline-flex w-fit -translate-x-12 items-center gap-2 text-lg text-[#5257e5] opacity-0 transition-[opacity,translate] delay-600 duration-1000 ease-out will-change-[opacity,translate] group-[.visible]:translate-x-0 group-[.visible]:opacity-100 hover:underline rtl:translate-x-12">
+                class="inline-flex w-fit -translate-x-12 items-center gap-2 text-lg text-[#5257e5] opacity-0 transition-[opacity,translate] delay-600 duration-1000 ease-out will-change-[opacity,translate] group-[.visible]:translate-x-0 group-[.visible]:opacity-100 group-[:not(.visible)]:transition-none hover:underline rtl:translate-x-12">
                 {lang.about.contact}
                 <ArrowRight class="inline size-6 rtl:rotate-y-180" />
             </a>
