@@ -16,7 +16,7 @@ const { title, percent, hidden = false } = Astro.props;
     </h3>
     <div class="h-2 w-full rounded-sm bg-linear-to-b from-white/10 to-white/15">
         <div
-            class="h-full origin-left scale-x-0 transition-transform duration-1000 ease-in-out group-[.visible]:scale-x-100 rtl:origin-right"
+            class="h-full origin-left scale-x-0 transition-transform duration-1000 ease-in-out will-change-[scale] group-[.visible]:scale-x-100 rtl:origin-right"
             style={{ width: `${percent}%` }}>
             <div
                 class="size-full rounded-sm bg-[#5257e5] inset-shadow-xs inset-shadow-black/20 transition-colors group-hover:bg-[#6fe3e1]">

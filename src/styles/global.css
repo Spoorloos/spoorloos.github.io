@@ -27,7 +27,7 @@
 
 @layer components {
     .nav-link {
-        @apply not-sm:not-nav-open:-translate-x-full not-sm:not-nav-open:rtl:translate-x-full not-sm:not-nav-open:opacity-0 sm:animate-fade-down relative block p-4 text-xl text-white shadow-black transition-all duration-300 not-sm:bg-black not-sm:font-extralight not-sm:shadow-2xl after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:scale-x-0 after:bg-white after:transition-transform not-sm:after:hidden hover:drop-shadow-white/50 hover:after:scale-x-100 sm:inline-block sm:p-2 sm:text-lg sm:text-white/75 sm:drop-shadow-sm sm:drop-shadow-black sm:hover:text-white;
+        @apply not-sm:not-nav-open:-translate-x-full not-sm:not-nav-open:rtl:translate-x-full not-sm:not-nav-open:opacity-0 sm:animate-fade-down relative block p-4 text-xl text-white shadow-black transition-[translate,opacity,visibility] duration-300 not-sm:bg-black not-sm:font-extralight not-sm:shadow-2xl after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:scale-x-0 after:bg-white after:transition-transform not-sm:after:hidden hover:drop-shadow-white/50 hover:after:scale-x-100 sm:inline-block sm:p-2 sm:text-lg sm:text-white/75 sm:drop-shadow-sm sm:drop-shadow-black sm:hover:text-white;
     }
 
     .button-primary {
