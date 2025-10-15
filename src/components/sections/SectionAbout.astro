@@ -1,4 +1,5 @@
 ---
+import Section from "@/components/Section.astro";
 import ArrowRight from "@lucide/astro/icons/arrow-right";
 import { Image } from "astro:assets";
 import pfp from "@/assets/pfp.jpg";
@@ -6,7 +7,7 @@ import pfp from "@/assets/pfp.jpg";
 const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
-<section class="main-section px-8" id="about-me">
+<Section id="about-me">
     <div class="group flex items-center gap-8 not-sm:flex-col sm:gap-16" id="about-me-content">
         <Image
             class="size-48 rounded-full opacity-0 shadow-2xl shadow-gray-500/50 transition-opacity delay-200 duration-1000 will-change-[opacity] group-[.visible]:opacity-100 group-[:not(.visible)]:transition-none sm:size-64"
@@ -30,7 +31,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
             </a>
         </div>
     </div>
-</section>
+</Section>
 
 <script>
     const aboutContent = document.querySelector<HTMLElement>("#about-me-content")!;

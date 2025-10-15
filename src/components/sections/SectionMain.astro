@@ -1,8 +1,10 @@
 ---
+import Section from "@/components/Section.astro";
+
 const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
-<section class="main-section animate-fade">
+<Section class="animate-fade">
     <h2 class="text-2xl text-white/50 italic drop-shadow-xl drop-shadow-white/10">
         {lang.main.sub}
     </h2>
@@ -18,7 +20,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         <a class="button-primary inline-block" href="#contact">{lang.main.contact}</a>
         <a class="button-secondary inline-block" href="#projects">{lang.main.projects}</a>
     </div>
-</section>
+</Section>
 
 <script>
     const descText = document.querySelector<HTMLSpanElement>("#description-text")!;

@@ -1,4 +1,5 @@
 ---
+import Section from "@/components/Section.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import RobloxHouse from "@/assets/roblox_house.webp";
 import WSChat from "@/assets/ws_chat.png";
@@ -11,7 +12,7 @@ import ScrollableContainer from "@/components/ScrollableContainer.astro";
 const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
-<section class="main-section" id="projects">
+<Section id="projects">
     <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
         {lang.projects.title}
     </h2>
@@ -80,4 +81,4 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
             />
         </ul>
     </ScrollableContainer>
-</section>
+</Section>

@@ -1,4 +1,5 @@
 ---
+import Section from "@/components/Section.astro";
 import Github from "simple-icons-astro/Github";
 import Telegram from "simple-icons-astro/Telegram";
 import Copy from "@lucide/astro/icons/copy";
@@ -9,7 +10,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 const email = "mick.negenman@icloud.com";
 ---
 
-<section class="main-section" id="contact">
+<Section id="contact">
     <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
         {lang.contact.title}
     </h2>
@@ -89,7 +90,7 @@ const email = "mick.negenman@icloud.com";
             {lang.contact.errors.fail}
         </p>
     </form>
-</section>
+</Section>
 
 <script>
     const form = document.querySelector<HTMLFormElement>("#contact-form")!;

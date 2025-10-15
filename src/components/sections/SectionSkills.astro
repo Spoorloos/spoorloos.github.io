@@ -1,11 +1,12 @@
 ---
+import Section from "@/components/Section.astro";
 import SkillCard from "@/components/SkillCard.astro";
 import ScrollableContainer from "@/components/ScrollableContainer.astro";
 
 const lang = await import(`@/locales/${Astro.currentLocale}.json`);
 ---
 
-<section class="main-section px-8" id="skills">
+<Section id="skills">
     <h2 class="text-4xl leading-none font-extrabold tracking-tight text-white md:text-5xl">
         {lang.skills.title}
     </h2>
@@ -32,4 +33,4 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
             </ul>
         </div>
     </ScrollableContainer>
-</section>
+</Section>
