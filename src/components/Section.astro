@@ -1,18 +1,20 @@
 ---
 import { twMerge } from "tailwind-merge";
 
-type Props = astroHTML.JSX.HTMLAttributes;
+type Props = {
+    id?: string;
+    class?: string;
+};
 
-const { class: className, ...rest } = Astro.props;
+const { id, class: className } = Astro.props;
 ---
 
-<div class="h-screen">
-    <section
+<section class="h-screen snap-center snap-always" id={id}>
+    <div
         class={twMerge(
-            "flex h-dvh snap-center snap-always flex-col items-center justify-center gap-4 py-4 px-8 text-center",
+            "flex h-dvh flex-col items-center justify-center gap-4 py-4 px-8 text-center",
             className
-        )}
-        {...rest}>
+        )}>
         <slot />
-    </section>
-</div>
+    </div>
+</section>
