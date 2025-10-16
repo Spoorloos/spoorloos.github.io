@@ -116,10 +116,14 @@ const email = "mick.negenman@icloud.com";
             });
 
             const parsed = await response.json();
+            if (parsed?.ok) {
+                throw new Error("API Error");
+            }
 
-            form.setAttribute("success", (parsed?.ok === true).toString());
-        } catch {
+            form.setAttribute("success", "true");
+        } catch (error) {
             form.setAttribute("success", "false");
+            console.log("Failed to send form!", error);
         } finally {
             form.classList.toggle("sending", false);
         }

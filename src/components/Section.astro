@@ -9,12 +9,11 @@ type Props = {
 const { id, class: className } = Astro.props;
 ---
 
-<section class="h-screen snap-center snap-always" id={id}>
-    <div
-        class={twMerge(
-            "flex h-dvh flex-col items-center justify-center gap-4 py-4 px-8 text-center",
-            className
-        )}>
-        <slot />
-    </div>
+<section
+    class={twMerge(
+        "flex h-screen flex-col items-center justify-center gap-4 py-4 px-8 text-center snap-center snap-always",
+        className
+    )}
+    {id}>
+    <slot />
 </section>
