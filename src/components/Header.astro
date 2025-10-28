@@ -90,6 +90,7 @@ const localeNames = await Promise.all(
 
 <script>
     const navBtn = document.querySelector<HTMLButtonElement>("#nav-btn")!;
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>("a.nav-link");
     const langsBtn = document.querySelector<HTMLButtonElement>("#langs-btn")!;
     const langsWrapper = document.querySelector<HTMLDivElement>("#langs-wrapper")!;
 
@@ -101,4 +102,11 @@ const localeNames = await Promise.all(
     langsBtn.addEventListener("click", () => {
         langsWrapper.classList.toggle("langs-open");
     });
+
+    for (const navLink of navLinks) {
+        navLink.addEventListener("click", () => {
+            document.documentElement.classList.toggle("nav-open");
+            langsWrapper.classList.toggle("langs-open", false);
+        });
+    }
 </script>
