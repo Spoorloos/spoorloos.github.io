@@ -21,23 +21,7 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
     </head>
     <body
         class={`${Astro.currentLocale === "fa" ? "font-noto-naskh" : "font-inter"} nav-open:overflow-hidden bg-black text-white`}>
-        <canvas class="pointer-events-none fixed inset-0 -z-10" id="animation-canvas"></canvas>
         <Header />
         <slot />
     </body>
 </html>
-
-<script>
-    import { ThpaceGL } from "thpace";
-
-    const canvas = document.querySelector<HTMLCanvasElement>("#animation-canvas")!;
-
-    ThpaceGL.create(canvas, {
-        colors: ["#000000", "#666666"],
-        triangleSize: 150,
-        maxFps: 60,
-        particleSettings: {
-            count: [0, 0],
-        },
-    });
-</script>

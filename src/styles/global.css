@@ -42,3 +42,31 @@
         @apply transition-opacity duration-100 group-[.sending]:pointer-events-none group-[.sending]:opacity-50;
     }
 }
+
+@property --rotation {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+body {
+    background:
+        linear-gradient(90deg, #ffffff09 1px, transparent 1px),
+        linear-gradient(0deg, #ffffff09 1px, transparent 1px),
+        linear-gradient(var(--rotation), transparent, #333333) black;
+    background-size:
+        5rem 5rem,
+        5rem 5rem,
+        100% 100%;
+    background-attachment: fixed;
+    animation: rotate-background 10s infinite;
+}
+
+@keyframes rotate-background {
+    0% {
+        --rotation: 0deg;
+    }
+    100% {
+        --rotation: 360deg;
+    }
+}
