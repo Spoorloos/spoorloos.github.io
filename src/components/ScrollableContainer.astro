@@ -15,7 +15,9 @@ const { class: className } = Astro.props;
     </div>
     <button
         type="button"
-        class="scroll-btn hidden cursor-pointer transition-transform [.reached-end]:rotate-180 [.scrollable]:block">
+        class="scroll-btn hidden cursor-pointer transition-transform [.reached-end]:rotate-180 [.scrollable]:block"
+        aria-label="Scroll down"
+        aria-controls="scrollable-content">
         <ChevronDown class="size-8 animate-pulse" />
     </button>
 </div>
