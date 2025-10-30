@@ -15,7 +15,6 @@
         "@lucide/astro": "^0.543.0",
         "@tailwindcss/vite": "^4.1.16",
         "astro": "^5.15.2",
-        "canvasparticles-js": "^3.8.2",
         "sharp": "^0.34.4",
         "simple-icons-astro": "^15.18.0",
         "tailwind-merge": "^3.3.1",

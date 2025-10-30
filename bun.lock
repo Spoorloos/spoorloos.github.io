@@ -10,7 +10,6 @@
         "@lucide/astro": "^0.543.0",
         "@tailwindcss/vite": "^4.1.16",
         "astro": "^5.15.2",
-        "canvasparticles-js": "^3.8.2",
         "sharp": "^0.34.4",
         "simple-icons-astro": "^15.18.0",
         "tailwind-merge": "^3.3.1",
@@ -319,8 +318,6 @@
     "bun-types": ["bun-types@1.3.1", "", { "dependencies": { "@types/node": "*" }, "peerDependencies": { "@types/react": "^19" } }, "sha512-NMrcy7smratanWJ2mMXdpatalovtxVggkj11bScuWuiOoXTiKIu2eVS1/7qbyI/4yHedtsn175n4Sm4JcdHLXw=="],
 
     "camelcase": ["camelcase@8.0.0", "", {}, "sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA=="],
-
-    "canvasparticles-js": ["canvasparticles-js@3.8.2", "", {}, "sha512-8BJ7oDtDcv0P8YfA1aY/wbBdisYPIvB8nyigpszjYCmHe5q0L1W+ePhzmPWPYS53bOgmn04PD2REIoACKGmnfg=="],
 
     "ccount": ["ccount@2.0.1", "", {}, "sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg=="],
 
