@@ -53,7 +53,8 @@ const {
             <a
                 class="pointer-fine:text-white/50 pointer-fine:transition-colors pointer-fine:hover:text-white"
                 href={githubLink}
-                target="_blank">
+                target="_blank"
+                aria-label={`Go to ${name} github`}>
                 <Github class="size-6" />
             </a>
             {
@@ -61,7 +62,8 @@ const {
                     <a
                         class="pointer-fine:text-white/50 pointer-fine:transition-colors pointer-fine:hover:text-white"
                         href={liveLink}
-                        target="_blank">
+                        target="_blank"
+                        aria-label={`View ${name} live website`}>
                         <ExternalLink class="size-6" />
                     </a>
                 )
