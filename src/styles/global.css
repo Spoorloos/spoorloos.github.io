@@ -58,6 +58,10 @@ body {
         5rem 5rem,
         5rem 5rem,
         100% 100%;
+    background-position:
+        var(--offset-x, 0) var(--offset-y, 0),
+        var(--offset-x, 0) var(--offset-y, 0),
+        0 0;
     background-attachment: fixed;
     animation: rotate-background 10s infinite;
 }

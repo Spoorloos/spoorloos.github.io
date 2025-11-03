@@ -25,3 +25,13 @@ const lang = await import(`@/locales/${Astro.currentLocale}.json`);
         <slot />
     </body>
 </html>
+
+<script>
+    document.addEventListener("mousemove", ({ clientX, clientY }) => {
+        const x = (clientX * 2) / window.innerWidth - 1;
+        const y = (clientY * 2) / window.innerHeight - 1;
+
+        document.body.style.setProperty("--offset-x", `${x * 12}px`);
+        document.body.style.setProperty("--offset-y", `${y * 12}px`);
+    });
+</script>
