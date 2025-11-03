@@ -116,8 +116,8 @@ const email = "mick.negenman@icloud.com";
             });
 
             const parsed = await response.json();
-            if (parsed?.ok) {
-                throw new Error("API Error");
+            if (parsed?.ok !== true) {
+                throw new Error("API didn't return OK");
             }
 
             form.setAttribute("success", "true");
