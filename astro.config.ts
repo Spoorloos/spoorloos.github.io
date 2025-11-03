@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import { resolve } from "node:path";
-import { locales } from "./src/scripts/locales";
+import { locales } from "./src/scripts/localization";
 
 // https://astro.build/config
 export default defineConfig({
