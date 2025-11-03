@@ -1,17 +1,10 @@
 ---
 import Binary from "@lucide/astro/icons/binary";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import Languages from "@lucide/astro/icons/languages";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { locales } from "@/scripts/locales";
 
-// @ts-expect-error
-const locales = __ASTRO_INTERNAL_I18N_CONFIG__.i18n.locales as string[];
-const lang = await import(`@/locales/${Astro.currentLocale}.json`);
-
-const localeNames = await Promise.all(
-    locales.map(async (locale) => {
-        return [locale, (await import(`@/locales/${locale}.json`)).name];
-    })
-);
+const lang = locales[Astro.currentLocale!];
 ---
 
 <header
@@ -64,11 +57,11 @@ const localeNames = await Promise.all(
             <ul
                 class="invisible absolute top-full mt-1 origin-top scale-y-0 space-y-0.5 rounded-lg border border-white/15 bg-white/10 p-2 text-white/80 opacity-0 drop-shadow-lg drop-shadow-white/10 transition-[visibility,scale,opacity] ease-in not-sm:start-0 not-sm:text-start group-[.langs-open]:visible group-[.langs-open]:scale-y-100 group-[.langs-open]:opacity-100 sm:end-0 sm:text-end">
                 {
-                    localeNames.map(([locale, name]) => (
+                    Object.entries(locales).map(([name, locale]) => (
                         <li
-                            class={`${locale === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50 transition-colors hover:text-white"} text-lg text-shadow-black/20 text-shadow-sm not-sm:text-xl`}>
-                            <a class="block" href={getRelativeLocaleUrl(locale)}>
-                                {name}
+                            class={`${name === Astro.currentLocale ? "pointer-events-none font-bold text-white" : "text-white/50 transition-colors hover:text-white"} text-lg text-shadow-black/20 text-shadow-sm not-sm:text-xl`}>
+                            <a class="block" href={getRelativeLocaleUrl(name)}>
+                                {locale.name}
                             </a>
                         </li>
                     ))

@@ -8,8 +8,9 @@ import MuseumOnline from "@/assets/museum_online.png";
 import DrukkerijAGS from "@/assets/drukkerij_ags.png";
 import Portfolio from "@/assets/portfolio.png";
 import ScrollableContainer from "@/components/ScrollableContainer.astro";
+import { locales } from "@/scripts/locales";
 
-const lang = await import(`@/locales/${Astro.currentLocale}.json`);
+const lang = locales[Astro.currentLocale!];
 ---
 
 <Section id="projects">

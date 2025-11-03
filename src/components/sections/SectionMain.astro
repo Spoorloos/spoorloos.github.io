@@ -1,7 +1,8 @@
 ---
 import Section from "@/components/Section.astro";
+import { locales } from "@/scripts/locales";
 
-const lang = await import(`@/locales/${Astro.currentLocale}.json`);
+const lang = locales[Astro.currentLocale!];
 ---
 
 <Section class="animate-fade">

@@ -2,12 +2,8 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
-import path from "node:path";
-import fs from "node:fs";
-
-const srcFolder = path.resolve(import.meta.dirname, "./src/");
-const localesFolder = path.resolve(srcFolder, "./locales/");
-const locales = fs.readdirSync(localesFolder).map((lang) => path.parse(lang).name);
+import { resolve } from "node:path";
+import { locales } from "./src/scripts/locales";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,13 +12,13 @@ export default defineConfig({
         plugins: [tailwindcss()],
         resolve: {
             alias: {
-                "@": srcFolder,
+                "@": resolve(import.meta.dirname, "./src/"),
             },
         },
     },
     integrations: [sitemap()],
     i18n: {
-        locales,
+        locales: Object.keys(locales),
         defaultLocale: "en",
         routing: {
             prefixDefaultLocale: false,

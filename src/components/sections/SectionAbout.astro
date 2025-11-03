@@ -3,8 +3,9 @@ import Section from "@/components/Section.astro";
 import ArrowRight from "@lucide/astro/icons/arrow-right";
 import { Image } from "astro:assets";
 import pfp from "@/assets/pfp.jpg";
+import { locales } from "@/scripts/locales";
 
-const lang = await import(`@/locales/${Astro.currentLocale}.json`);
+const lang = locales[Astro.currentLocale!];
 ---
 
 <Section id="about-me">

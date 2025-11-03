@@ -2,8 +2,9 @@
 import Section from "@/components/Section.astro";
 import SkillCard from "@/components/SkillCard.astro";
 import ScrollableContainer from "@/components/ScrollableContainer.astro";
+import { locales } from "@/scripts/locales";
 
-const lang = await import(`@/locales/${Astro.currentLocale}.json`);
+const lang = locales[Astro.currentLocale!];
 ---
 
 <Section id="skills">
