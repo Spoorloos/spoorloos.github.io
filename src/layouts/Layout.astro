@@ -28,11 +28,29 @@ const lang = locales[Astro.currentLocale!];
 </html>
 
 <script>
-    document.addEventListener("mousemove", ({ clientX, clientY }) => {
-        const x = (clientX * 2) / window.innerWidth - 1;
-        const y = (clientY * 2) / window.innerHeight - 1;
+    let mouseX: number | undefined;
+    let mouseY: number | undefined;
+    let isUpdating = false;
 
-        document.body.style.setProperty("--offset-x", `${x * 12}px`);
-        document.body.style.setProperty("--offset-y", `${y * 12}px`);
+    function updateBackgroundOffset() {
+        isUpdating = false;
+
+        if (mouseX === undefined || mouseY === undefined) return;
+
+        const x = (mouseX * 2) / window.innerWidth - 1;
+        const y = (mouseY * 2) / window.innerHeight - 1;
+
+        document.body.style.setProperty("--offset-x", `${Math.floor(x * 15)}px`);
+        document.body.style.setProperty("--offset-y", `${Math.floor(y * 15)}px`);
+    }
+
+    document.addEventListener("mousemove", ({ clientX, clientY }) => {
+        mouseX = clientX;
+        mouseY = clientY;
+
+        if (!isUpdating) {
+            isUpdating = true;
+            requestAnimationFrame(updateBackgroundOffset);
+        }
     });
 </script>

@@ -45,25 +45,33 @@
 
 @property --rotation {
     syntax: "<angle>";
-    initial-value: 0deg;
+    initial-value: 135deg;
     inherits: false;
 }
 
 body {
+    position: relative;
+    background: linear-gradient(var(--rotation), transparent, #333333) fixed black;
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: rotate-background 10s infinite both;
+    }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: -15px;
     background:
         linear-gradient(90deg, #ffffff09 1px, transparent 1px),
-        linear-gradient(0deg, #ffffff09 1px, transparent 1px),
-        linear-gradient(var(--rotation), transparent, #333333) black;
-    background-size:
-        5rem 5rem,
-        5rem 5rem,
-        100% 100%;
-    background-position:
-        var(--offset-x, 0) var(--offset-y, 0),
-        var(--offset-x, 0) var(--offset-y, 0),
-        0 0;
-    background-attachment: fixed;
-    animation: rotate-background 10s infinite;
+        linear-gradient(0deg, #ffffff09 1px, transparent 1px);
+    background-size: 5rem 5rem;
+
+    @media (prefers-reduced-motion: no-preference) and (pointer: fine) {
+        transform: translate(var(--offset-x, 0), var(--offset-y, 0));
+        transition: transform 0.25s ease-out;
+        will-change: transform;
+    }
 }
 
 @keyframes rotate-background {
